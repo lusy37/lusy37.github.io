@@ -1,1 +1,6 @@
-/* Here is your custom css styles. */
+*{
+    cursor: url("/medias/normal.ico"),auto!important;
+}
+:active{
+    cursor: url("/medias/normal.ico"),auto!important;
+}
