@@ -915,6 +915,14 @@ $(function () {
     
 
     <!-- 鼠标星星特效 -->
+     
+        <script type="text/javascript">
+            // 只在桌面版网页启用特效
+            var windowWidth = $(window).width();
+            if (windowWidth > 768) {
+                document.write('<script type="text/javascript" src="/libs/others/star.js"><\/script>');
+            }
+        </script>
     
 
      
@@ -941,8 +949,6 @@ $(function () {
     })();
 </script>
 
-    
-    <script src="/libs/others/clicklove.js" async="async"></script>
     
     
     <script async src="/libs/others/busuanzi.pure.mini.js"></script>
@@ -974,4 +980,41 @@ $(function () {
     }
 </script>
    
+<!--点击单词特效-->>
+<script type="text/javascript">
+    var a_idx = 0;
+jQuery(document).ready(function ($) {
+    $("body").click(function (e) {
+        var a = new Array("Wisdom", "Hope", "Love", "Peace", "Sakura", "Joy", "Harmony", "Serenity", "Diligent", "Faded", "Pure", "Angel");
+        var $i = $("<span/>").text(a[a_idx]);
+        a_idx = (a_idx + 1) % a.length;
+        var x = e.pageX,
+            y = e.pageY;
+        $i.css({
+            "z-index": 5,
+            "top": y - 20,
+            "left": x,
+            "position": "absolute",
+            "font-weight": "bold",
+            "color": "#FF870C"
+        });
+        $("body").append($i);
+        $i.animate({
+                "top": y - 180,
+                "opacity": 0
+            },
+            3000,
+            function () {
+                $i.remove();
+            });
+    });
+    setTimeout('delay()', 2000);
+});
+
+function delay() {
+    $(".buryit").removeAttr("onclick");
+}
+
+</script>
+
 </html>
