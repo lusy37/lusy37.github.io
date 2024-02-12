@@ -1,6 +1,24 @@
+/*
 *{
     cursor: url("/medias/Black-Void-Cursors_3495/暗黑虚空/normal.cur"),auto!important;
 }
 :active{
     cursor: url("/medias/Black-Void-Cursors_3495/暗黑虚空/normal.cur"),auto!important;
+}
+*/
+
+body {
+	cursor: url("/medias/Black-Void-Cursors_3495/暗黑虚空/normal.cur"), auto;
+}
+a {
+	cursor: url("/medias/Black-Void-Cursors_3495/暗黑虚空/link.cur"), auto!important;
+}
+
+@font-face{
+    font-family: '1';
+    src: url('/font/1.otf');
+}
+
+body{
+    font-family: '1';
 }
