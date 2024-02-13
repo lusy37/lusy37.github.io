@@ -2315,17 +2315,17 @@ body.DarkMode .theme-btn:hover {
     color: #d9534f;
 }
 
-/* 滚动条 */
+/* 滚动条 #077b45f5  #507F80 -webkit-linear-gradient(45deg,rgba(255,255,255,.4) 25%,transparent 25%,transparent 50%,rgba(255,255,255,.4) 50%,rgba(255,255,255,.4) 75%,transparent 75%,transparent);*/
 ::-webkit-scrollbar-thumb {
-    background-color: #077b45f5;
+    background-color: #74FDFF;
     background-image: -webkit-linear-gradient(45deg,rgba(255,255,255,.4) 25%,transparent 25%,transparent 50%,rgba(255,255,255,.4) 50%,rgba(255,255,255,.4) 75%,transparent 75%,transparent);
     border-radius: 3em;
 }
 ::-webkit-scrollbar-track {
-    background-color: #507F80;
+    background-color: #c8d2ffee;
     border-radius: 3em;
 }
 ::-webkit-scrollbar {
-    width: 8px;
-    height: 15px;
+    width: 9px;
+    height: 5px;
 }
