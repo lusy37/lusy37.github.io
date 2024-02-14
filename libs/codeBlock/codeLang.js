@@ -2,7 +2,7 @@
 
 $(function () {
   // 创建一个具有 'code_lang' 类和 '代码语言' 标题的元素，用于显示代码语言
-  var $highlight_lang = $('<div class="code_lang" title=""></div>');
+  var $highlight_lang = $('<div class="code_lang" title="代码语言"></div>');
   // 在每个代码块的前面插入显示代码语言的元素
   $('pre').before($highlight_lang);
 

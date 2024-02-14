@@ -883,6 +883,7 @@ header .go-back i {
 }
 
 /*文章列表卡片各样式*/
+/*
 #articles {
     margin-top: 10px;
     margin-bottom: 10px;
@@ -2179,9 +2180,9 @@ body.DarkMode .theme-btn {
     transition: background-color 0.2s ease-in-out;
 }
 body.DarkMode .theme-btn:hover {
-    background: #ea0808;
-    border-color: #ed0c0c;
-    color: #ee0909;
+    background: #666;
+    border-color: #666;
+    color: #ccc;
 }
 .theme-btn {
     background: #fff;
@@ -2328,5 +2329,5 @@ body.DarkMode .theme-btn:hover {
 }
 ::-webkit-scrollbar {
     width: 9px;
-    height: 5px;
+    height: 7px;
 }
