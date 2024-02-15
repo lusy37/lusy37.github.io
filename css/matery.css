@@ -883,7 +883,6 @@ header .go-back i {
 }
 
 /*文章列表卡片各样式*/
-/*
 #articles {
     margin-top: 10px;
     margin-bottom: 10px;
@@ -1246,7 +1245,7 @@ article .article-tags .chip {
     display: block;
     border-collapse: collapse;
     border-spacing: 0;
-    overflow: auto;
+    overflow: hidden;
 }
 
 /**
