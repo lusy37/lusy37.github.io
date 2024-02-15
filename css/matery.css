@@ -117,11 +117,20 @@ blockquote {
     color: #666;
     background-color: rgba(66, 185, 131, .1);
 }
-
+/*
 pre {
     padding: 2rem 1rem 1rem 3rem !important;
     border-radius: 0.35rem;
     tab-size: 4;
+}
+*/
+pre {
+    max-width: 100%; /* 设置最大宽度为父容器宽度 */
+    width: auto; /* 自动适应内容的宽度 */
+    padding: 2rem 1rem 1rem 3rem !important;
+    border-radius: 0.35rem;
+    tab-size: 4;
+    overflow: hidden; /* 隐藏溢出内容 */
 }
 
 .code-area::after {
@@ -1245,7 +1254,7 @@ article .article-tags .chip {
     display: block;
     border-collapse: collapse;
     border-spacing: 0;
-    overflow: hidden;
+    overflow: auto;
 }
 
 /**
