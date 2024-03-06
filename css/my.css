@@ -15,10 +15,31 @@ a {
 }
 
 @font-face{
+    font-family: '8';
+    src: url('/font/8.ttf');
+}
+
+body{
+    font-family: '8';
+}
+
+@font-face{
     font-family: '1';
     src: url('/font/1.otf');
 }
 
-body{
+.diy-font{
     font-family: '1';
 }
+
+
+@font-face{
+    font-family: '4';
+    src: url('/font/4.ttf');/*4*/
+}
+
+.diy-Font{
+    font-family: '4';
+}
+
+
