@@ -428,21 +428,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="fa fa-history fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2024-03-06
+                    2024-03-08
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.1k
+                    3.3k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    9 分
+                    13 分
                 </div>
                 
 
@@ -702,6 +702,10 @@ stack<span class="token operator">&lt;</span>node<span class="token operator">><
 <td><code>s.size()</code></td>
 <td>返回栈内元素个数，O(1)</td>
 </tr>
+<tr>
+<td>注意没有 <code>s.clear()</code>!</td>
+<td>不提供该函数</td>
+</tr>
 </tbody>
 </table>
 <h3 id="23栈的遍历"><a class="markdownIt-Anchor" href="#23栈的遍历"></a> 2.3栈的遍历</h3>
@@ -733,7 +737,210 @@ stack<span class="token operator">&lt;</span>node<span class="token operator">><
 <span class="token comment">//                tt</span>
 <span class="token comment">//出栈后示意</span>
 <span class="token comment">//  0  1  2  3  4 </span>
-<span class="token comment">//              tt</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
+<span class="token comment">//              tt</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="3-queue"><a class="markdownIt-Anchor" href="#3-queue"></a> 3 queue</h2>
+<h3 id="31介绍"><a class="markdownIt-Anchor" href="#31介绍"></a> 3.1介绍</h3>
+<p>队列为数据结构的一种，是STL中实现先进先出，后进后出的一种容器。</p>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token comment">//头文件</span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span><span class="token string">&lt;queue></span></span>
+<span class="token comment">//初始化定义</span>
+queue<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">></span> q<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="32封装函数"><a class="markdownIt-Anchor" href="#32封装函数"></a> 3.2封装函数</h3>
+<table>
+<thead>
+<tr>
+<th>代码</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>q.front()</code></td>
+<td>返回队首元素O(1)</td>
+</tr>
+<tr>
+<td><code>q.back()</code></td>
+<td>返回队尾元素O(1)</td>
+</tr>
+<tr>
+<td><code>q.push(element)</code></td>
+<td>队尾添加一个元素<code>element</code>O(1)</td>
+</tr>
+<tr>
+<td><code>q.size()</code></td>
+<td>返回队列中元素个数，返回值类型<code>unsigned int</code>O(1)</td>
+</tr>
+<tr>
+<td><code>q.empty()</code></td>
+<td>检测队列是否为空，空为真O(1)</td>
+</tr>
+<tr>
+<td>注意没有 <code>q.clear()</code>!</td>
+<td>不提供该函数</td>
+</tr>
+</tbody>
+</table>
+<h3 id="33队列模拟"><a class="markdownIt-Anchor" href="#33队列模拟"></a> 3.3队列模拟</h3>
+<p>使用数组<code>q[]</code>模拟队列<br />
+<code>hh</code>表示队首元素的下标，初始值为<code>0</code><br />
+<code>tt</code>表示队尾元素的下标，初始值为<code>-1</code>,表示<strong>刚开始队列为空</strong></p>
+<blockquote><p>一般来说单调栈和单调队列写法均可以使用额外变量<code>tt</code>或<code>hh</code>来进行模拟</p>
+</blockquote>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span><span class="token string">&lt;bits/stdc++.h></span></span>
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
+<span class="token keyword">const</span> <span class="token keyword">int</span> N <span class="token operator">=</span> <span class="token number">1e5</span> <span class="token operator">+</span> <span class="token number">5</span><span class="token punctuation">;</span>
+<span class="token keyword">int</span> q<span class="token punctuation">[</span>N<span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+  <span class="token keyword">int</span> hh<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span>tt<span class="token operator">=</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+<span class="token comment">// 入队</span>
+  q<span class="token punctuation">[</span><span class="token operator">++</span>tt<span class="token punctuation">]</span><span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>
+  q<span class="token punctuation">[</span><span class="token operator">++</span>tt<span class="token punctuation">]</span><span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">;</span>
+<span class="token comment">// 将所有元素出队</span>
+  <span class="token keyword">while</span><span class="token punctuation">(</span>hh<span class="token operator">&lt;=</span>tt<span class="token operator">></span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+    cout <span class="token operator">&lt;&lt;</span> q<span class="token punctuation">[</span>hh<span class="token operator">++</span><span class="token punctuation">]</span> <span class="token operator">&lt;&lt;</span> <span class="token char">' '</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>    
+  <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="4-deque"><a class="markdownIt-Anchor" href="#4-deque"></a> 4 deque</h2>
+<h3 id="41介绍"><a class="markdownIt-Anchor" href="#41介绍"></a> 4.1介绍</h3>
+<p>首尾都可以插入和删除的队列为双端队列。</p>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token comment">//添加头文件</span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span><span class="token string">&lt;deque></span></span>
+<span class="token comment">//初始化定义</span>
+deque<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">></span> dq<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="42封装函数"><a class="markdownIt-Anchor" href="#42封装函数"></a> 4.2封装函数</h3>
+<blockquote><p>注意双端队列的常数比较大</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>代码</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>dq.push_back(element)/push_front(element)</code></td>
+<td>把<code>element</code>插入队尾后/队首O(1)</td>
+</tr>
+<tr>
+<td><code>dq.back()/dq.front()</code></td>
+<td>返回队尾/队首元素O(1)</td>
+</tr>
+<tr>
+<td><code>dq.pop_back()/dq.pop_front()</code></td>
+<td>删除队尾/队首元素O(1)</td>
+</tr>
+<tr>
+<td><code>dq.erase(iterator it)</code></td>
+<td>删除双端队列中的某一个元素</td>
+</tr>
+<tr>
+<td><code>dq.erase(iterator first,iterator last)</code></td>
+<td>删除双端队列中<code>[first,last)</code>中的元素</td>
+</tr>
+<tr>
+<td><code>dq.size()</code></td>
+<td>返回deque中元素个数O(1)</td>
+</tr>
+<tr>
+<td><code>dq.empty()</code></td>
+<td>检测队列是否为空，空为真O(1)</td>
+</tr>
+<tr>
+<td><code>dq.clear()</code></td>
+<td>清空deque</td>
+</tr>
+</tbody>
+</table>
+<h3 id="43注意点"><a class="markdownIt-Anchor" href="#43注意点"></a> 4.3注意点</h3>
+<p>deque可以进行排序</p>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token comment">//从小到大</span>
+<span class="token function">sort</span><span class="token punctuation">(</span>q<span class="token punctuation">.</span><span class="token function">begin</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> q<span class="token punctuation">.</span><span class="token function">end</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token comment">//从大到小排序</span>
+<span class="token function">sort</span><span class="token punctuation">(</span>q<span class="token punctuation">.</span><span class="token function">begin</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> q<span class="token punctuation">.</span><span class="token function">end</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token generic-function"><span class="token function">greater</span><span class="token generic class-name"><span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">></span></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//deque里面的类型需要是int型,保证deque的数据类型和greater的数据类型一致</span>
+<span class="token function">sort</span><span class="token punctuation">(</span>q<span class="token punctuation">.</span><span class="token function">begin</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> q<span class="token punctuation">.</span><span class="token function">end</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token function">greater</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//高版本C++才可以用</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="5-priority_queue"><a class="markdownIt-Anchor" href="#5-priority_queue"></a> 5 priority_queue</h2>
+<h3 id="51介绍"><a class="markdownIt-Anchor" href="#51介绍"></a> 5.1介绍</h3>
+<p>优先队列是在正常队列的基础上加了优先级，保证每次的队首元素都是优先级最高的。<br />
+可以实现每次从优先队列中取出的元素都是队列中<strong>优先级最高</strong>的一个。<br />
+它的底层是通过<strong>堆</strong>来实现的。</p>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token comment">//头文件</span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span><span class="token string">&lt;queue></span></span>
+<span class="token comment">//初始化定义</span>
+priority_queue<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">></span> q<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="52封装函数"><a class="markdownIt-Anchor" href="#52封装函数"></a> 5.2封装函数</h3>
+<table>
+<thead>
+<tr>
+<th>代码</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>q.top()</code></td>
+<td>返回队首元素O(1)</td>
+</tr>
+<tr>
+<td><code>q.push(element)</code></td>
+<td>将<code>element</code>压入队列O(logN)</td>
+</tr>
+<tr>
+<td><code>q.pop()</code></td>
+<td>堆顶（队首）元素出队O(logN)</td>
+</tr>
+<tr>
+<td><code>q.size()</code></td>
+<td>返回队列中元素个数O(1)</td>
+</tr>
+<tr>
+<td><code>q.empty()</code></td>
+<td>检测队列是否为空，空为真O(1)</td>
+</tr>
+<tr>
+<td>注意没有 <code>q.clear()</code>!</td>
+<td>不提供该函数</td>
+</tr>
+<tr>
+<td>优先队列只能通过<code>top()</code>访问队首元素(优先级最高的元素)</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="53设置优先级"><a class="markdownIt-Anchor" href="#53设置优先级"></a> 5.3设置优先级</h3>
+<h4 id="531基本数据类型的优先级"><a class="markdownIt-Anchor" href="#531基本数据类型的优先级"></a> 5.3.1基本数据类型的优先级</h4>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">priority_queue<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">></span> pq<span class="token punctuation">;</span><span class="token comment">// 默认大根堆，即每次取出的元素是队列中的最大值</span>
+priority_queue<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token punctuation">,</span> vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">></span><span class="token punctuation">,</span>less<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">></span> <span class="token operator">></span> q2<span class="token punctuation">;</span><span class="token comment">// 大根堆每次取出的元素是队列中的最大值，同第一行</span>
+
+priority_queue<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token punctuation">,</span> vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">></span><span class="token punctuation">,</span>greater<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">></span> <span class="token operator">></span> q3<span class="token comment">// 小根堆，每次取出的元素是队列中的最小值</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p>参数解释：</p>
+<ul>
+<li>
+<p>第一个参数：就是优先级队列中储存的数据类型</p>
+</li>
+<li>
+<p>第二个参数：</p>
+<p><code>vector&lt;int&gt;</code>是用来承载底层数据结构堆的容器，若优先队列中储存的数据类型是<code>double</code>，就要填<code>vector&lt;double&gt;</code><br />
+<strong>总之存的是什么类型的数据，就相应的填写对应类型。同时也要改动第三个参数里面的对应类型。</strong></p>
+</li>
+<li>
+<p>第三个参数：<br />
+<code>less&lt;int&gt;</code> 表示数字大的优先级高，堆顶为最大的数字<br />
+<code>greater&lt;int&gt;</code> 表示数字小的优先级高,堆顶为最小的数字<br />
+<strong>int代表的是数据类型，也要填优先队列中存储的数据类型</strong></p>
+</li>
+</ul>
+<hr />
+<p>下面介绍基础数据类型优先级设置的写法：<br />
+1.基础写法(非常实用)：</p>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">priority_queue<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">></span> q1<span class="token punctuation">;</span> <span class="token comment">// 默认大根堆, 即每次取出的元素是队列中的最大值</span>
+priority_queue<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token punctuation">,</span> vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">></span><span class="token punctuation">,</span> less<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">></span> <span class="token operator">></span> q2<span class="token punctuation">;</span> <span class="token comment">// 大根堆, 每次取出的元素是队列中的最大值，同第一行</span>
+
+priority_queue<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token punctuation">,</span> vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">></span><span class="token punctuation">,</span> greater<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">></span> <span class="token operator">></span> q3<span class="token punctuation">;</span> <span class="token comment">// 小根堆, 每次取出的元素是队列中的最小值</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p>2.自定义排序(不常见，比较麻烦)：</p>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
                 
             </div>
             <hr/>
@@ -1213,7 +1420,7 @@ stack<span class="token operator">&lt;</span>node<span class="token operator">><
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">13.3k</span>
+                        class="white-color">14.5k</span>
             
             
             
