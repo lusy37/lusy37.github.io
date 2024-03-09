@@ -34,12 +34,12 @@ body{
 
 
 @font-face{
-    font-family: '4';
-    src: url('/font/4.ttf');/*4*/
+    font-family: 'g';
+    src: url('/font/g.ttf');/*4*/
 }
 
 .diy-Font{
-    font-family: '4';
+    font-family: 'g';
 }
 
 

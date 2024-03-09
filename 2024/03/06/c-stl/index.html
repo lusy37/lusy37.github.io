@@ -428,21 +428,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="fa fa-history fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2024-03-08
+                    2024-03-09
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    3.3k
+                    4k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    13 分
+                    16 分
                 </div>
                 
 
@@ -940,7 +940,96 @@ priority_queue<span class="token operator">&lt;</span><span class="token keyword
 
 priority_queue<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token punctuation">,</span> vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">></span><span class="token punctuation">,</span> greater<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">></span> <span class="token operator">></span> q3<span class="token punctuation">;</span> <span class="token comment">// 小根堆, 每次取出的元素是队列中的最小值</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <p>2.自定义排序(不常见，比较麻烦)：</p>
-<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">struct</span> <span class="token class-name">cmp1</span><span class="token punctuation">&#123;</span>
+  <span class="token keyword">bool</span> <span class="token keyword">operator</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token keyword">const</span> <span class="token keyword">int</span> x<span class="token punctuation">,</span><span class="token keyword">const</span> <span class="token keyword">int</span> y<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+    <span class="token keyword">return</span> x<span class="token operator">&lt;</span>y<span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+<span class="token keyword">struct</span> <span class="token class-name">cmp2</span><span class="token punctuation">&#123;</span>
+  <span class="token keyword">bool</span> <span class="token keyword">operator</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token keyword">int</span> x<span class="token punctuation">,</span> <span class="token keyword">int</span> y<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+    <span class="token keyword">return</span> x<span class="token operator">></span>y<span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+priority_queue<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token punctuation">,</span>vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">></span><span class="token punctuation">,</span>cmp1<span class="token operator">></span> q1<span class="token punctuation">;</span><span class="token comment">//大根堆</span>
+priority_queue<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token punctuation">,</span>vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">></span><span class="token punctuation">,</span>cmp2<span class="token operator">></span> q2<span class="token punctuation">;</span><span class="token comment">//小根堆</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="532高级数据类型结构体优先级"><a class="markdownIt-Anchor" href="#532高级数据类型结构体优先级"></a> 5.3.2高级数据类型(结构体)优先级</h4>
+<blockquote><p>即优先队列中存储结构体类型，必须要设置优先级，即结构体的比较运算（因为优先队列的堆中要比较大小，才能将对应最大或者最小元素移到堆顶）。</p>
+</blockquote>
+<p>优先级设置可以定义在<strong>结构体内</strong>进行小于号重载，也可以定义在<strong>结构体外</strong>。</p>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token comment">//要排序的结构体（存储在优先队列里面的）</span>
+<span class="token keyword">struct</span> <span class="token class-name">Point</span> <span class="token punctuation">&#123;</span>
+	<span class="token keyword">int</span> x<span class="token punctuation">,</span> y<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<ul>
+<li><strong>版本一：自定义全局比较规则</strong></li>
+</ul>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token comment">//定义的比较结构体</span>
+<span class="token comment">//注意：cmp是个结构体 </span>
+<span class="token keyword">struct</span> <span class="token class-name">cmp</span> <span class="token punctuation">&#123;</span><span class="token comment">//自定义堆的排序规则 </span>
+	<span class="token keyword">bool</span> <span class="token keyword">operator</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">(</span><span class="token keyword">const</span> Point <span class="token operator">&amp;</span>a<span class="token punctuation">,</span><span class="token keyword">const</span> Point <span class="token operator">&amp;</span>b<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+		<span class="token keyword">return</span> a<span class="token punctuation">.</span>x <span class="token operator">&lt;</span> b<span class="token punctuation">.</span>x<span class="token punctuation">;</span>
+	<span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+
+<span class="token comment">//初始化定义， </span>
+priority_queue<span class="token operator">&lt;</span>Point<span class="token punctuation">,</span> vector<span class="token operator">&lt;</span>Point<span class="token operator">></span><span class="token punctuation">,</span> cmp<span class="token operator">></span> q<span class="token punctuation">;</span> <span class="token comment">// x大的在堆顶</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<ul>
+<li><strong>版本二：直接在结构体内定义</strong></li>
+</ul>
+<blockquote><p>因为是在结构体内部自定义的规则，一旦需要比较结构体，自动调用结构体内部重载运算符规则。<br />
+比较美观，易查找</p>
+</blockquote>
+<p>结构体内部有两种方式：<br />
+<strong>方式一：（更清晰）</strong></p>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">struct</span> <span class="token class-name">node</span><span class="token punctuation">&#123;</span>
+  <span class="token keyword">int</span> x<span class="token punctuation">,</span>y<span class="token punctuation">;</span>
+  <span class="token keyword">friend</span> <span class="token keyword">bool</span> <span class="token keyword">operator</span> <span class="token operator">&lt;</span> <span class="token punctuation">(</span><span class="token keyword">const</span> node <span class="token operator">&amp;</span>a<span class="token punctuation">,</span><span class="token keyword">const</span> node <span class="token operator">&amp;</span>b<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+    <span class="token keyword">return</span> a<span class="token punctuation">.</span>x <span class="token operator">&lt;</span> b<span class="token punctuation">.</span>x<span class="token punctuation">;</span><span class="token comment">// 按照x从小到大排序，大根堆</span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><strong>方式二：</strong></p>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">struct</span> <span class="token class-name">node</span><span class="token punctuation">&#123;</span>
+  <span class="token keyword">int</span> x<span class="token punctuation">,</span>y<span class="token punctuation">;</span>
+  <span class="token keyword">bool</span> <span class="token keyword">operator</span> <span class="token operator">&lt;</span> <span class="token punctuation">(</span><span class="token keyword">const</span> node <span class="token operator">&amp;</span>a<span class="token punctuation">)</span> <span class="token keyword">const</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">return</span> x <span class="token operator">&lt;</span> a<span class="token punctuation">.</span>x<span class="token punctuation">;</span><span class="token comment">//按照x从小到大排序，大根堆 </span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>优先队列的定义</p>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">priority_queue<span class="token operator">&lt;</span>node<span class="token operator">></span> q<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p><strong>注意：<strong>优先队列自定义排序规则和<code>sort()</code>函数定义<code>cmp</code>函数很相似，但最后返回的情况是</strong>相反</strong>的。即相同的符号，最后定义的排列顺序是完全相反的。<br />
+所以只需要记住<code>sort</code>的排序规则和优先队列的规则是相反的或者堆顶位于最后一个元素就可以了。</p>
+<blockquote><p>当理解了堆的原理就会发现，堆调整时比较顺序是孩子和父亲节点进行比较，如果是<code>&gt;</code>，那么孩子节点要大于父亲节点，堆顶自然是最小值。</p>
+</blockquote>
+<h3 id="54储存特殊类型的优先级"><a class="markdownIt-Anchor" href="#54储存特殊类型的优先级"></a> 5.4储存特殊类型的优先级</h3>
+<h4 id="541储存pair类型"><a class="markdownIt-Anchor" href="#541储存pair类型"></a> 5.4.1储存pair类型</h4>
+<ul>
+<li>排序规则：<br />
+默认先对<code>pair</code>的<code>first</code>进行降序排序，然后再对<code>second</code>降序排序<br />
+对<code>first</code>先排序，大的排在前面，如果<code>fiest</code>元素相同，再对<code>second</code>元素排序，大的排在前面。</li>
+</ul>
+<blockquote><p><code>pair</code>请参考下文</p>
+</blockquote>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span><span class="token string">&lt;bits/stdc++.h></span></span>
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    priority_queue<span class="token operator">&lt;</span>pair<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token punctuation">,</span> <span class="token keyword">int</span><span class="token operator">></span> <span class="token operator">></span>q<span class="token punctuation">;</span>
+	q<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span><span class="token number">7</span><span class="token punctuation">,</span> <span class="token number">8</span><span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	q<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span><span class="token number">7</span><span class="token punctuation">,</span> <span class="token number">9</span><span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	q<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token function">make_pair</span><span class="token punctuation">(</span><span class="token number">8</span><span class="token punctuation">,</span> <span class="token number">7</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">while</span><span class="token punctuation">(</span><span class="token operator">!</span>q<span class="token punctuation">.</span><span class="token function">empty</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        cout <span class="token operator">&lt;&lt;</span> q<span class="token punctuation">.</span><span class="token function">top</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>first <span class="token operator">&lt;&lt;</span> <span class="token string">" "</span> <span class="token operator">&lt;&lt;</span> q<span class="token punctuation">.</span><span class="token function">top</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>second <span class="token operator">&lt;&lt;</span> <span class="token string">"\n"</span><span class="token punctuation">;</span>
+        q<span class="token punctuation">.</span><span class="token function">pop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<blockquote><p>输出结果：<br />
+8 7<br />
+7 9<br />
+7 8</p>
+</blockquote>
+<h2 id="6-map"><a class="markdownIt-Anchor" href="#6-map"></a> 6 map</h2>
+<h3 id="61介绍"><a class="markdownIt-Anchor" href="#61介绍"></a> 6.1介绍</h3>
+<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
                 
             </div>
             <hr/>
@@ -1420,7 +1509,7 @@ priority_queue<span class="token operator">&lt;</span><span class="token keyword
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">14.5k</span>
+                        class="white-color">15.2k</span>
             
             
             
