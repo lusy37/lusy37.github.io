@@ -428,21 +428,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="fa fa-history fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2024-03-12
+                    2024-03-13
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    4.5k
+                    4.7k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    18 分
+                    19 分
                 </div>
                 
 
@@ -1043,7 +1043,8 @@ map<span class="token operator">&lt;</span>string<span class="token punctuation"
 map<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token punctuation">,</span>node<span class="token operator">></span> mp<span class="token punctuation">;</span><span class="token comment">//node是结构体</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <blockquote><p>map特性：map会按照键的顺序从小到大自动排序，建的类型必须可以比较大小</p>
 </blockquote>
-<h3 id="62-封装函数"><a class="markdownIt-Anchor" href="#62-封装函数"></a> 6.2 封装函数</h3>
+<h3 id="62封装函数"><a class="markdownIt-Anchor" href="#62封装函数"></a> 6.2封装函数</h3>
+<h4 id="621封装函数"><a class="markdownIt-Anchor" href="#621封装函数"></a> 6.2.1封装函数</h4>
 <table>
 <thead>
 <tr>
@@ -1114,7 +1115,14 @@ map<span class="token operator">&lt;</span><span class="token keyword">int</span
 </tr>
 </tbody>
 </table>
-<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
+<h4 id="622注意点"><a class="markdownIt-Anchor" href="#622注意点"></a> 6.2.2注意点</h4>
+<p><strong>下面说明部分封装函数的注意点</strong></p>
+<blockquote><p>注意：<br />
+查找元素是否存在时，可以使用<br />
+①<code>mp.find()</code> ② <code>mp.count()</code> ③ <code>mp[key]</code><br />
+但是第三种情况，如果不存在对应的key时，会自动创建一个键值对<code>&lt;key,0&gt;</code>（产生一个额外的键值对空间）<br />
+所以为了不增加额外的空间负担和避免对下一次查找造成干扰，最好使用前两种方法</p>
+</blockquote><link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
                 
             </div>
             <hr/>
@@ -1585,7 +1593,7 @@ map<span class="token operator">&lt;</span><span class="token keyword">int</span
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">16.2k</span>
+                        class="white-color">16.3k</span>
             
             
             
