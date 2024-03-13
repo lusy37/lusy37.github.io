@@ -428,21 +428,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="fa fa-history fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2024-03-09
+                    2024-03-12
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    4k
+                    4.5k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    16 分
+                    18 分
                 </div>
                 
 
@@ -1029,6 +1029,91 @@ priority_queue<span class="token operator">&lt;</span>Point<span class="token pu
 </blockquote>
 <h2 id="6-map"><a class="markdownIt-Anchor" href="#6-map"></a> 6 map</h2>
 <h3 id="61介绍"><a class="markdownIt-Anchor" href="#61介绍"></a> 6.1介绍</h3>
+<p>映射类似与函数的对应关系，每一个<code>x</code>对应一个<code>y</code>，而<code>map</code>是每一个<strong>键</strong>对应一个<strong>值</strong>，会python的朋友学习后就会知道这和python的字典非常类似。</p>
+<blockquote><p>比如说：学习 对应 看书，学习 是键，看书 是值。<br />
+学习-&gt;看书<br />
+玩耍 对应 打游戏，玩耍 是键，打游戏 是值。<br />
+玩耍-&gt;打游戏</p>
+</blockquote>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token comment">//头文件</span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span><span class="token string">&lt;map></span></span>
+<span class="token comment">//初始化定义</span>
+map<span class="token operator">&lt;</span>string<span class="token punctuation">,</span>string<span class="token operator">></span> mp<span class="token punctuation">;</span>
+map<span class="token operator">&lt;</span>string<span class="token punctuation">,</span><span class="token keyword">int</span><span class="token operator">></span> mp<span class="token punctuation">;</span>
+map<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token punctuation">,</span>node<span class="token operator">></span> mp<span class="token punctuation">;</span><span class="token comment">//node是结构体</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<blockquote><p>map特性：map会按照键的顺序从小到大自动排序，建的类型必须可以比较大小</p>
+</blockquote>
+<h3 id="62-封装函数"><a class="markdownIt-Anchor" href="#62-封装函数"></a> 6.2 封装函数</h3>
+<table>
+<thead>
+<tr>
+<th>代码</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>mp.find(key)</code></td>
+<td>返回键为key的映射的<code>迭代器</code>O(logN) 注意：用find函数来定位数据出现位置，它返回一个迭代器。当数据存在时，返回数据所在位置的迭代器，数据不存在时，返回mp.end()</td>
+</tr>
+<tr>
+<td><code>mp.erase(it)</code></td>
+<td>删除迭代器对应的键和值O(1)</td>
+</tr>
+<tr>
+<td><code>mp.erase(key)</code></td>
+<td>删除映射的键和值O(logN)</td>
+</tr>
+<tr>
+<td><code>mp.erase(first,last)</code></td>
+<td>删除<code>[first,last)</code>左闭右开迭代器对应的键和值O(last-first)</td>
+</tr>
+<tr>
+<td><code>mp.size()</code></td>
+<td>返回映射的对数O(1)</td>
+</tr>
+<tr>
+<td><code>mp.clear()</code></td>
+<td>清空map中所有的元素O(N)</td>
+</tr>
+<tr>
+<td><code>mp.insert()</code></td>
+<td>插入元素，插入时要构成键值对</td>
+</tr>
+<tr>
+<td><code>mp.empty()</code></td>
+<td>如果map为空，返回true，否则返回false</td>
+</tr>
+<tr>
+<td><code>mp.begin()</code></td>
+<td>返回指向map第一个元素的迭代器(地址)</td>
+</tr>
+<tr>
+<td><code>mp.end()</code></td>
+<td>返回指向map最后一个元素的下一个地址的迭代器</td>
+</tr>
+<tr>
+<td><code>mp.rbegin()</code></td>
+<td>返回指向最后一个元素的逆向迭代器(地址)</td>
+</tr>
+<tr>
+<td><code>mp.rend()</code></td>
+<td>返回指向map第一个元素前面(上一个地址)的逆向迭代器</td>
+</tr>
+<tr>
+<td><code>mp.count(key)</code></td>
+<td>查看元素是否存在，因为map中键是唯一的，所以存在返回1，不存在返回0</td>
+</tr>
+<tr>
+<td><code>mp.lower_bound(key)</code></td>
+<td>返回一个迭代器，指向键值&gt;=<strong>key</strong>的第一个元素</td>
+</tr>
+<tr>
+<td><code>mp.upper_bound(key)</code></td>
+<td>返回一个迭代器，指向键值&gt;<strong>key</strong>的第一个元素</td>
+</tr>
+</tbody>
+</table>
 <link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
                 
             </div>
@@ -1418,6 +1503,7 @@ priority_queue<span class="token operator">&lt;</span>Point<span class="token pu
 </script>
 
     
+    
 
 </main>
 
@@ -1499,7 +1585,7 @@ priority_queue<span class="token operator">&lt;</span>Point<span class="token pu
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">15.7k</span>
+                        class="white-color">16.2k</span>
             
             
             
