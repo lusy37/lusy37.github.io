@@ -71,7 +71,6 @@
 #toc-content .toc-link::before {
     background-color: transparent;
     max-height: 25px;
-
     position: absolute;
     right: 23.5vw;
     display: block;
@@ -79,6 +78,19 @@
 
 #toc-content .is-active-link {
     color: #42b983;
+    position: relative;
+}
+
+#toc-content .is-active-link::before {
+    /*background-color: #42b983;
+    left: 10px; /* 设置伪元素距离目录链接右侧的距离为 10 像素 */
+    background-color: #42b983;
+    left: -20px; /* 将伪元素位置调整为与链接文本左对齐 */
+    position: absolute;
+    content: "";
+    width: 2px; /* 伪元素宽度 */
+    height: 150%; /* 伪元素高度 */
+    top: -25%; /* 向上移动25% */
 }
 
 #floating-toc-btn {
