@@ -435,14 +435,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    5.1k
+                    5.8k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    21 分
+                    24 分
                 </div>
                 
 
@@ -1177,7 +1177,7 @@ mp<span class="token punctuation">[</span><span class="token number">3</span><sp
 	cout <span class="token operator">&lt;&lt;</span> it2<span class="token operator">-></span>first <span class="token operator">&lt;&lt;</span> <span class="token string">"\n"</span><span class="token punctuation">;</span><span class="token comment">//it2->first=6</span>
 	<span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h4 id="63添加元素"><a class="markdownIt-Anchor" href="#63添加元素"></a> 6.3添加元素</h4>
+<h3 id="63添加元素"><a class="markdownIt-Anchor" href="#63添加元素"></a> 6.3添加元素</h3>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token comment">//先声明</span>
 map<span class="token operator">&lt;</span>string<span class="token punctuation">,</span>string<span class="token operator">></span> mp<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <ul>
@@ -1197,7 +1197,7 @@ mp<span class="token punctuation">[</span><span class="token string">"玩耍"</s
 <li>方式四：</li>
 </ul>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">mp<span class="token punctuation">.</span><span class="token function">insert</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span><span class="token string">"water"</span><span class="token punctuation">,</span><span class="token string">"水"</span><span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<h4 id="64元素访问"><a class="markdownIt-Anchor" href="#64元素访问"></a> 6.4元素访问</h4>
+<h3 id="64元素访问"><a class="markdownIt-Anchor" href="#64元素访问"></a> 6.4元素访问</h3>
 <ul>
 <li>方式一：迭代器访问</li>
 </ul>
@@ -1208,6 +1208,99 @@ mp<span class="token punctuation">[</span><span class="token string">"玩耍"</s
   <span class="token comment">//*it是结构体变量 访问要用 . 访问 </span>
   <span class="token comment">//cout&lt;&lt;(*it).first&lt;&lt;" "&lt;&lt;(*it).second; </span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<ul>
+<li>方式二：智能指针访问</li>
+</ul>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">auto</span> ed <span class="token operator">:</span> mp<span class="token punctuation">)</span>
+cout <span class="token operator">&lt;&lt;</span> ed<span class="token punctuation">.</span>first <span class="token operator">&lt;&lt;</span> <span class="token char">' '</span> <span class="token operator">&lt;&lt;</span> ed<span class="token punctuation">.</span>second <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span><span class="token comment">//键，值</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<ul>
+<li>方式三：对指定单个元素访问</li>
+</ul>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">map<span class="token operator">&lt;</span><span class="token keyword">char</span><span class="token punctuation">,</span><span class="token keyword">int</span><span class="token operator">></span><span class="token double-colon punctuation">::</span>iterator it <span class="token operator">=</span> mp<span class="token punctuation">.</span><span class="token function">find</span><span class="token punctuation">(</span><span class="token char">'a'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+cout <span class="token operator">&lt;&lt;</span> it<span class="token punctuation">.</span>first <span class="token operator">&lt;&lt;</span> <span class="token char">' '</span> <span class="token operator">&lt;&lt;</span> it<span class="token punctuation">.</span>second <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<h3 id="65与unordered_map的比较"><a class="markdownIt-Anchor" href="#65与unordered_map的比较"></a> 6.5与unordered_map的比较</h3>
+<h4 id="651封装函数"><a class="markdownIt-Anchor" href="#651封装函数"></a> 6.5.1封装函数</h4>
+<table>
+<thead>
+<tr>
+<th>代码</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ump.find(key)</code></td>
+<td>返回键为key的映射的<code>迭代器</code>O(1) 注意：用find函数来定位数据出现位置，它返回一个迭代器。当数据存在时，返回数据所在位置的迭代器，数据不存在时，返回ump.end()</td>
+</tr>
+<tr>
+<td><code>ump.erase(it)</code></td>
+<td>删除迭代器对应的键和值O(1)</td>
+</tr>
+<tr>
+<td><code>ump.erase(key)</code></td>
+<td>删除映射的键和值O(N)</td>
+</tr>
+<tr>
+<td><code>ump.erase(first,last)</code></td>
+<td>删除<code>[first,last)</code>左闭右开迭代器对应的键和值O(last-first)</td>
+</tr>
+<tr>
+<td><code>ump.size()</code></td>
+<td>返回映射的对数O(1)</td>
+</tr>
+<tr>
+<td><code>ump.clear()</code></td>
+<td>清空unordered_map中所有的元素O(N)</td>
+</tr>
+<tr>
+<td><code>ump.insert()/ump.emplace()</code></td>
+<td>插入元素，插入时要构成键值对</td>
+</tr>
+<tr>
+<td><code>ump.empty()</code></td>
+<td>如果unordered_map为空，返回true，否则返回false</td>
+</tr>
+<tr>
+<td><code>ump.begin()</code></td>
+<td>返回指向unordered_map第一个元素的迭代器(地址)</td>
+</tr>
+<tr>
+<td><code>ump.end()</code></td>
+<td>返回指向unordered_map最后一个元素的下一个地址的迭代器</td>
+</tr>
+<tr>
+<td><code>ump.count(key)</code></td>
+<td>查看元素是否存在，因为unordered_map中键是唯一的，所以存在返回1，不存在返回0</td>
+</tr>
+</tbody>
+</table>
+<blockquote><p>注意：<br />
+<strong>ump.insert()</strong></p>
+<ul>
+<li>如果插入的键已经存在于 <code>unordered_map</code> 中，<code>insert()</code> 不会添加新的键值对，而是保持原有的键值对不变。如果你希望更新已存在键对应的值，你可以使用 <code>operator[]</code> 或者 <code>at()</code> 函数。</li>
+<li><code>insert()</code> 返回一个 std::pair 对象，其 first 成员指向一个指向插入的元素的迭代器，second 成员表示插入是否成功。如果插入成功，second 将为 true；如果插入失败，second 将为 false</li>
+</ul>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token comment">//方法一：</span>
+ump<span class="token punctuation">.</span><span class="token function">emplace</span><span class="token punctuation">(</span>std<span class="token double-colon punctuation">::</span><span class="token generic-function"><span class="token function">pair</span><span class="token generic class-name"><span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token punctuation">,</span> std<span class="token double-colon punctuation">::</span>string<span class="token operator">></span></span></span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token string">"one"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">//方法二：</span>
+ump<span class="token punctuation">.</span><span class="token function">insert</span><span class="token punctuation">(</span>std<span class="token double-colon punctuation">::</span><span class="token class-name">unordered_map</span><span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token punctuation">,</span> std<span class="token double-colon punctuation">::</span>string<span class="token operator">></span><span class="token double-colon punctuation">::</span><span class="token function">value_type</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token string">"one"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">//方法三：</span>
+ump<span class="token punctuation">.</span><span class="token function">insert</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token string">"one"</span><span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//有花括号</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><strong>ump.emplace()</strong></p>
+<ul>
+<li><code>emplace()</code> 接受参数作为键值对的构造函数的参数。它会在 std::unordered_map 中构造新的元素，而不需要进行拷贝或移动操作。如果指定的键已经存在，它将会失败。如果键不存在，则会插入成功。</li>
+<li><code>emplace()</code> 返回一个 std::pair 对象，与 <code>insert()</code> 类似，但它的 first 成员指向一个指向新插入元素的迭代器。</li>
+</ul>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token comment">//方法一：</span>
+ump<span class="token punctuation">.</span><span class="token function">emplace</span><span class="token punctuation">(</span>std<span class="token double-colon punctuation">::</span><span class="token generic-function"><span class="token function">pair</span><span class="token generic class-name"><span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token punctuation">,</span> std<span class="token double-colon punctuation">::</span>string<span class="token operator">></span></span></span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token string">"one"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">//方法二：</span>
+myMap<span class="token punctuation">.</span><span class="token function">emplace</span><span class="token punctuation">(</span>std<span class="token double-colon punctuation">::</span><span class="token class-name">unordered_map</span><span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token punctuation">,</span> std<span class="token double-colon punctuation">::</span>string<span class="token operator">></span><span class="token double-colon punctuation">::</span><span class="token function">value_type</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token string">"one"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">//方法三：</span>
+myMap<span class="token punctuation">.</span><span class="token function">emplace</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token string">"one"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//没有花括号</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></blockquote>
+<h4 id="652内部实现原理"><a class="markdownIt-Anchor" href="#652内部实现原理"></a> 6.5.2内部实现原理</h4>
+<p><strong>map：<strong>内部使用</strong>红黑树</strong>实现，具有<strong>自动排序</strong>(按键从小到大)功能。<br />
+<strong>unordered_map：<strong>内部使用</strong>哈希表</strong>实现，内部元素无序杂乱。</p>
+<h4 id="653效率比较"><a class="markdownIt-Anchor" href="#653效率比较"></a> 6.5.3效率比较</h4>
 <link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
                 
             </div>
@@ -1679,7 +1772,7 @@ mp<span class="token punctuation">[</span><span class="token string">"玩耍"</s
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">16.8k</span>
+                        class="white-color">17.5k</span>
             
             
             
