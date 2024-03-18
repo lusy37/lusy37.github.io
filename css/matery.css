@@ -268,7 +268,7 @@ mark {
 }
 
 .bg-color {
-    background-image: linear-gradient(to right, #970ba7 0%, #077b45f5 100%);
+    background-image: linear-gradient(to right, rgb(55, 59, 68) 0%, rgb(66, 134, 244) 100%);/*to right, #970ba7 0%, #077b45f5 100%*/
     opacity: 0.7;
 }
 
@@ -286,7 +286,7 @@ mark {
     position: fixed;
     bottom: 0;
     z-index: 300;
-    background-image: linear-gradient(to right, #970ba7 0%, #077b45f5 100%);
+    background-image: linear-gradient(to right,rgb(55, 59, 68) 0%, rgb(66, 134, 244) 100%);
     opacity: 0.7;
 }
 
@@ -1865,7 +1865,7 @@ footer {
 }
 
 footer .social-statis {
-    margin-top: 10px;
+    margin-top: 30px;
     position: relative;
 }
 
@@ -1939,7 +1939,7 @@ p.search-result-summary{
 }
 
 .top-scroll .btn-floating {
-    background: linear-gradient(to bottom right, #970ba7 0%, #077b45f5 100%);
+    background: linear-gradient(to bottom right, rgb(55, 59, 68) 0%, rgb(66, 134, 244) 100%);/*to right, #970ba7 0%, #077b45f5 100%*/
     width: 48px;
     height: 48px;
 }
@@ -2328,7 +2328,7 @@ body.DarkMode .theme-btn:hover {
 
 /* 滚动条 #077b45f5  #507F80 -webkit-linear-gradient(45deg,rgba(255,255,255,.4) 25%,transparent 25%,transparent 50%,rgba(255,255,255,.4) 50%,rgba(255,255,255,.4) 75%,transparent 75%,transparent);*/
 ::-webkit-scrollbar-thumb {
-    background-color: #74FDFF;
+    background-color: rgb(129, 204, 246)/*#74FDFF*/;
     background-image: -webkit-linear-gradient(45deg,rgba(255,255,255,.4) 25%,transparent 25%,transparent 50%,rgba(255,255,255,.4) 50%,rgba(255,255,255,.4) 75%,transparent 75%,transparent);
     border-radius: 3em;
 }

@@ -435,14 +435,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.1k
+                    1.8k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    4 分
+                    6 分
                 </div>
                 
 
@@ -589,6 +589,88 @@ test/hello.txt<br />
 </li>
 </ul>
 <p><strong>图例：</strong><img src="https://cdn.jsdelivr.net/gh/lusysakura3/Pictures@master/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202024-03-17%20232921.png" alt="Alt" /></p>
+<h4 id="10-which查找命令的程序文件"><a class="markdownIt-Anchor" href="#10-which查找命令的程序文件"></a> 10 which(查找命令的程序文件)</h4>
+<ul>
+<li><code>which</code>：查看所使用的一系列命令的程序文件存放在哪里</li>
+<li>用法：<code>which 要查找的命令(cd,cp,pwd……)</code></li>
+</ul>
+<h4 id="11-find查找文件"><a class="markdownIt-Anchor" href="#11-find查找文件"></a> 11 find(查找文件)</h4>
+<ul>
+<li><code>find</code>：可以搜索指定的文件</li>
+<li>用法：<br />
+①按文件名查找：<code>find 起始路径 -name &quot;被查找文件名&quot;</code>[文件名支持通配符]<br />
+②按文件大小查找：<code>find 起始路径 -size +/- n[kMG]</code>
+<ul>
+<li><code>+,-</code>：表示大于和小于</li>
+<li><code>n</code>：表示大小数字</li>
+<li><code>kMG</code>：表示单位大小，<code>k</code>(小写字母)表示kb，<code>M</code>表示MB，<code>G</code>表示GB</li>
+</ul>
+</li>
+</ul>
+<blockquote><p><strong>注意：</strong><br />
+<code>find</code>命令存在权限问题，普通用户使用<code>find</code>命令时可能受到权限限制，无法搜索到部分目录或文件。</p>
+</blockquote>
+<h4 id="12-grep过滤文件行"><a class="markdownIt-Anchor" href="#12-grep过滤文件行"></a> 12 grep(过滤文件行)</h4>
+<ul>
+<li><code>grep</code>：从文件中通过关键字过滤文件行</li>
+<li>用法：<code>grep [-n] &quot;关键字&quot; 文件路径</code><br />
+<code>-n</code>：表示在结果中显示匹配的行的行号<br />
+<code>&quot;关键字&quot;</code>：表示要过滤的关键词，带有空格或其他特殊符号，建议使用&quot; &quot;将关键词包围起来<br />
+<code>文件路径</code>：表示过滤内容的文件路径，<strong>可作为内容输入端口</strong></li>
+</ul>
+<h4 id="13-wc数量统计"><a class="markdownIt-Anchor" href="#13-wc数量统计"></a> 13 wc(数量统计)</h4>
+<ul>
+<li><code>wc</code>：可以统计文件的行数、单词数量等</li>
+<li>用法：<code>wc [-c -m -l -w] 文件路径</code><br />
+<code>-c</code>：统计bytes数量<br />
+<code>-m</code>：统计字符数量<br />
+<code>-l</code>：统计行数<br />
+<code>-w</code>：统计单词数量<br />
+<strong>没有输入选项</strong>：默认输出<code>行数</code>、<code>单词数</code>、<code>字节数</code><br />
+<code>文件路径</code>：可以作为内容输入的端口</li>
+</ul>
+<h4 id="14-管道符"><a class="markdownIt-Anchor" href="#14-管道符"></a> 14 | (管道符)</h4>
+<ul>
+<li><code>|</code>：将管道符左边命令的结果，作为右边命令的输入</li>
+<li>用法：可以和<code>grep</code>、<code>wc</code>……结合使用。</li>
+</ul>
+<blockquote><p><strong>注意：</strong><br />
+<code>|</code>可以多次嵌套使用。<br />
+下图例子：<code>cat hello.txt | grep &quot;lusy&quot; | grep love</code><br />
+先通过<code>cat hello.txt | grep &quot;lusy&quot;</code>筛选出<br />
+<strong>lusy</strong> love you<br />
+<strong>lusy</strong> qq lus<br />
+wwsa <strong>lusy</strong><br />
+再进行<code>| grep love</code>筛选出<br />
+lusy <strong>love</strong></p>
+</blockquote>
+<p><strong>图例：</strong><img src="https://cdn.jsdelivr.net/gh/lusy37/Pictures@master/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202024-03-18%20184306.png" alt="Alt" /></p>
+<h4 id="15-echo输出内容"><a class="markdownIt-Anchor" href="#15-echo输出内容"></a> 15 echo(输出内容)</h4>
+<ul>
+<li><code>echo</code>：输出指定的内容[类似于C中的printf语句]</li>
+<li>用法：<code>echo &quot;输出的内容&quot;</code> [带有空格或其他特殊符号，建议使用&quot; &quot;将关键词包围起来]</li>
+</ul>
+<h4 id="16-反引号"><a class="markdownIt-Anchor" href="#16-反引号"></a> 16 ` (反引号)</h4>
+<ul>
+<li>用法：被`包围的内容将会被当成命令执行，可以和echo搭配使用</li>
+</ul>
+<h4 id="17-和重定项符"><a class="markdownIt-Anchor" href="#17-和重定项符"></a> 17 &gt;和&gt;&gt;(重定项符)</h4>
+<ul>
+<li><code>&gt;/&gt;&gt;</code>：修改文件内容</li>
+<li>用法：
+<ul>
+<li><code>&gt;</code>：将左侧命令的结果，<strong>覆盖</strong>写到符号右侧指定的文件中</li>
+<li><code>&gt;&gt;</code>：将左侧命令的结果，<strong>追加</strong>写入符号右侧指定的文件中</li>
+</ul>
+</li>
+</ul>
+<h4 id="18-tail查看文件尾部"><a class="markdownIt-Anchor" href="#18-tail查看文件尾部"></a> 18 tail(查看文件尾部)</h4>
+<ul>
+<li><code>tail</code>：可以查看文件尾部内容，跟踪文件的最新更改</li>
+<li>用法：<code>tail [-f -n] Linux路径</code><br />
+<code>-f</code>：表示持续跟踪，会实时更新<br />
+<code>-n</code>：n是具体数字，表示要查看尾部多少行，不填默认<strong>10</strong>行</li>
+</ul>
 <link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
                 
             </div>
@@ -1062,7 +1144,7 @@ test/hello.txt<br />
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">19.2k</span>
+                        class="white-color">19.9k</span>
             
             
             
