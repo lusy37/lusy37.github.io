@@ -428,21 +428,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="fa fa-history fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2024-03-18
+                    2024-03-20
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2k
+                    5k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    7 分
+                    18 分
                 </div>
                 
 
@@ -673,7 +673,7 @@ lusy <strong>love</strong></p>
 </ul>
 <p><strong>图例：</strong><img src="https://cdn.jsdelivr.net/gh/lusy37/Pictures@master/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202024-03-18%20204315.png" alt="Alt" /></p>
 <img src="https://cdn.jsdelivr.net/gh/lusy37/Pictures@master/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202024-03-18%20204642.png" alt='' style="float: right; width: 300px; height: auto;">
-<h4 id="19vivim编辑文件"><a class="markdownIt-Anchor" href="#19vivim编辑文件"></a> 19vi/vim(编辑文件)</h4>
+<h4 id="19-vivim编辑文件"><a class="markdownIt-Anchor" href="#19-vivim编辑文件"></a> 19 vi/vim(编辑文件)</h4>
 <ul>
 <li><code>vi/vim</code>：编辑器，可以编辑文件内容[vim是vi的pro版本]</li>
 <li>用法：<code>vi/vim 文件路径</code>
@@ -689,6 +689,428 @@ lusy <strong>love</strong></p>
 <li><strong>输入模式</strong>需要退回到<strong>命令模式</strong>，如何通过命令才可以进入<strong>底线命令模式</strong></li>
 </ul>
 </li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>模式</th>
+<th>命令</th>
+<th>描述</th>
+<th>模式</th>
+<th>命令</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>命令模式</td>
+<td><code>i</code></td>
+<td>在当前光标位置进入 输入模式</td>
+<td>命令模式</td>
+<td><code>yy</code></td>
+<td>复制当前行</td>
+</tr>
+<tr>
+<td>命令模式</td>
+<td><code>a</code></td>
+<td>在当前光标位置 之后 进入 输入模式</td>
+<td>命令模式</td>
+<td><code>nyy</code></td>
+<td>n是数字,复制当前行和下面的n行</td>
+</tr>
+<tr>
+<td>命令模式</td>
+<td><code>o</code></td>
+<td>在当前光标下一行进入输入模式</td>
+<td>命令模式</td>
+<td><code>p</code></td>
+<td>粘贴复制的内容</td>
+</tr>
+<tr>
+<td>命令模式</td>
+<td><code>I</code></td>
+<td>在当前行的开头,进入输入模式</td>
+<td>命令模式</td>
+<td><code>u</code></td>
+<td>撤销修改</td>
+</tr>
+<tr>
+<td>命令模式</td>
+<td><code>A</code></td>
+<td>在当前行的结尾,进入输入模式</td>
+<td>命令模式</td>
+<td><code>ctrl + r</code></td>
+<td>反向撤销修改</td>
+</tr>
+<tr>
+<td>命令模式</td>
+<td><code>O</code></td>
+<td>在当前光标上一行进入输入模式</td>
+<td>命令模式</td>
+<td><code>gg</code></td>
+<td>跳到首行</td>
+</tr>
+<tr>
+<td>输入模式</td>
+<td><code>esc</code></td>
+<td>任何情况下输入<code>esc</code>都能回到命令模式</td>
+<td>命令模式</td>
+<td><code>G</code></td>
+<td>跳到行尾</td>
+</tr>
+<tr>
+<td>命令模式</td>
+<td><code>键盘上、键盘k</code></td>
+<td>向上移动光标</td>
+<td>命令模式</td>
+<td><code>dd</code></td>
+<td>删除光标所在行的内容</td>
+</tr>
+<tr>
+<td>命令模式</td>
+<td><code>键盘下、键盘j</code></td>
+<td>向下移动光标</td>
+<td>命令模式</td>
+<td><code>ndd</code></td>
+<td>n是数字,表示删除当前光标向下n行</td>
+</tr>
+<tr>
+<td>命令模式</td>
+<td><code>键盘左、键盘h</code></td>
+<td>向左移动光标</td>
+<td>命令模式</td>
+<td><code>dG</code></td>
+<td>从当前行开始,向下全部删除</td>
+</tr>
+<tr>
+<td>命令模式</td>
+<td><code>键盘右、键盘1</code></td>
+<td>向后移动光标</td>
+<td>命令模式</td>
+<td><code>dgg</code></td>
+<td>从当前行开始,向上全部删除</td>
+</tr>
+<tr>
+<td>命令模式</td>
+<td><code>0</code></td>
+<td>移动光标到当前行的开头</td>
+<td>命令模式</td>
+<td><code>d$</code></td>
+<td>从当前光标开始,删除到本行的结尾</td>
+</tr>
+<tr>
+<td>命令模式</td>
+<td><code>$</code></td>
+<td>移动光标到当前行的结尾</td>
+<td>命令模式</td>
+<td><code>de</code></td>
+<td>从当前光标开始,删除到本行的开头</td>
+</tr>
+<tr>
+<td>命令模式</td>
+<td><code>pageup(PgUp)</code></td>
+<td>向上翻页</td>
+<td>底线命令模式</td>
+<td><code>:wq</code></td>
+<td>保存并退出</td>
+</tr>
+<tr>
+<td>命令模式</td>
+<td><code>pangdown(PgDn)</code></td>
+<td>向下翻页</td>
+<td>底线命令模式</td>
+<td><code>:q!</code></td>
+<td>强制退出</td>
+</tr>
+<tr>
+<td>命令模式</td>
+<td><code>/</code></td>
+<td>进入搜索模式</td>
+<td>底线命令模式</td>
+<td><code>:w</code></td>
+<td>仅保存</td>
+</tr>
+<tr>
+<td>命令模式</td>
+<td><code>n</code></td>
+<td>向下继续搜索</td>
+<td>底线命令模式</td>
+<td><code>:set nu</code></td>
+<td>显示行号</td>
+</tr>
+<tr>
+<td>命令模式</td>
+<td><code>N</code></td>
+<td>向上继续搜索</td>
+<td>底线命令模式</td>
+<td><code>:set paste</code></td>
+<td>设置粘贴模式</td>
+</tr>
+</tbody>
+</table>
+<h3 id="root用户"><a class="markdownIt-Anchor" href="#root用户"></a> root用户</h3>
+<h4 id="1-root用户和普通用户"><a class="markdownIt-Anchor" href="#1-root用户和普通用户"></a> 1 root用户和普通用户</h4>
+<ul>
+<li><code>root用户(超级管理员)</code>：拥有最大的系统操作权限[而普通用户在许多地方的权限是受限的]</li>
+<li><code>普通用户</code>：一般在其home目录内是不受限的,而一旦出了home目录，大多数地方普通用户仅有只读和执行权限，无修改权限</li>
+</ul>
+<h4 id="2-su和exit切换用户"><a class="markdownIt-Anchor" href="#2-su和exit切换用户"></a> 2 su和exit(切换用户)</h4>
+<h5 id="21-su"><a class="markdownIt-Anchor" href="#21-su"></a> 2.1 su</h5>
+<ul>
+<li><code>su</code>：用于账户的切换</li>
+<li>用法：<code>su [-] [用户名]</code><br />
+<code>-</code>：表示是否在切换用户后加载环境变量，<strong>建议带上</strong><br />
+<code>用户名</code>：表示要切换的用户，如果没有填写，默认切换到root用户</li>
+</ul>
+<h5 id="22-exit"><a class="markdownIt-Anchor" href="#22-exit"></a> 2.2 exit</h5>
+<ul>
+<li><code>exit</code>：退回上一个用户</li>
+<li>用法：切换用户后，可以通过<code>exit</code>命令返回上一个用户，也可以使用快捷键<code>Ctrl + d</code></li>
+</ul>
+<blockquote><p><strong>注意：</strong></p>
+<ul>
+<li>使用普通用户，切换到其他用户<strong>需要输入密码</strong>，如切换到root用户(输入的密码要与切换到的用户的密码对应)</li>
+<li>使用root用户切换到其他用户，<strong>无需密码</strong>，可以直接切换</li>
+</ul>
+</blockquote>
+<h4 id="3-sudo获得权限"><a class="markdownIt-Anchor" href="#3-sudo获得权限"></a> 3 sudo(获得权限)</h4>
+<ul>
+<li><code>sudo</code>：可以为普通用户的命令授权，临时以<code>root</code>身份执行</li>
+<li>用法：<code>sudo 其它命令</code></li>
+</ul>
+<blockquote><p><strong>注意：</strong></p>
+<ul>
+<li>在其它命令之前，带上<code>sudo</code>,即可为这一条命令临时赋予<code>root</code>授权</li>
+<li>但并不是所有的用户都有权利使用<code>sudo</code>,<mark>我们需要在此之前为普通用户配置sudo认证</mark></li>
+</ul>
+</blockquote>
+<ul>
+<li>配置sudo认证：
+<ul>
+<li>切换<code>root</code>用户</li>
+<li>执行<code>visudo</code>命令，会自动通过vi编辑器打开：/etc/sudoers</li>
+<li>在文件的最后添加相关指令[<strong>如下</strong>]</li>
+<li>通过<code>wq</code>保存</li>
+</ul>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>username</code></td>
+<td>表示将授权信息添加到指定用户的权限列表中</td>
+</tr>
+<tr>
+<td><code>otheruser</code></td>
+<td>指定其他用户的身份。</td>
+</tr>
+<tr>
+<td><code>%groupname</code></td>
+<td>指定要授权的用户组。</td>
+</tr>
+<tr>
+<td><code>ALL</code></td>
+<td>表示将授权信息添加到所有用户或者组的权限列表中</td>
+</tr>
+<tr>
+<td><code>(ALL)</code></td>
+<td>表示可以以任何用户的身份执行命令。</td>
+</tr>
+<tr>
+<td><code>NOPASSWD</code></td>
+<td>表示授权用户在执行该命令时无需输入密码</td>
+</tr>
+<tr>
+<td><code>PASSWD</code></td>
+<td>表示授权用户在执行该命令时需要输入密码</td>
+</tr>
+<tr>
+<td><code>/path/</code></td>
+<td>表示授权用户可以执行的命令路径，必须使用完整的命令路径</td>
+</tr>
+<tr>
+<td><code>/file</code></td>
+<td>表示授权用户可以执行的文件路径，必须使用完整的文件路径</td>
+</tr>
+<tr>
+<td><code>!</code></td>
+<td>表示阻止用户执行某些命令</td>
+</tr>
+<tr>
+<td><code>#</code></td>
+<td>表示注释符号，后面的内容将被视为注释，不起实际作用</td>
+</tr>
+<tr>
+<td><code>Defaults</code></td>
+<td>表示设置sudo的默认配置信息，包括日志路径、运行超时时间等</td>
+</tr>
+</tbody>
+</table>
+<ol>
+<li>
+<p><strong>用户授权</strong>：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">username  <span class="token assign-left variable">ALL</span><span class="token operator">=</span><span class="token punctuation">(</span>ALL<span class="token punctuation">)</span> <span class="token punctuation">[</span>NOPASSWD:<span class="token punctuation">]</span> <span class="token builtin class-name">command</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<ul>
+<li><code>username</code>：指定要授权的用户名。</li>
+<li><code>ALL</code>：表示可以在任何主机上执行命令。</li>
+<li><code>(ALL)</code>：表示可以以任何用户的身份执行命令。</li>
+<li><code>NOPASSWD</code>：表示无需输入密码。</li>
+</ul>
+<p>例如，允许用户 <code>john</code> 在任何主机上以任何用户的身份执行 <code>/bin/ls</code> 命令，并且无需输入密码：</p>
+<pre class="line-numbers language-css" data-language="css"><code class="language-css">john ALL=<span class="token punctuation">(</span>ALL<span class="token punctuation">)</span> <span class="token property">NOPASSWD</span><span class="token punctuation">:</span> /bin/ls<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+</li>
+<li>
+<p><strong>用户组授权</strong>：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">%groupname  <span class="token assign-left variable">ALL</span><span class="token operator">=</span><span class="token punctuation">(</span>ALL<span class="token punctuation">)</span> <span class="token punctuation">[</span>NOPASSWD:<span class="token punctuation">]</span> <span class="token builtin class-name">command</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<ul>
+<li><code>%groupname</code>：指定要授权的用户组。</li>
+<li>其他参数的含义同上。</li>
+</ul>
+<p>例如，允许用户组 <code>admins</code> 在任何主机上以任何用户的身份执行 <code>/bin/ls</code> 命令，并且无需输入密码：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">%admins <span class="token assign-left variable">ALL</span><span class="token operator">=</span><span class="token punctuation">(</span>ALL<span class="token punctuation">)</span> NOPASSWD: /bin/ls<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+</li>
+<li>
+<p><strong>指定可执行文件路径</strong>：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">username  <span class="token assign-left variable">ALL</span><span class="token operator">=</span><span class="token punctuation">(</span>ALL<span class="token punctuation">)</span> <span class="token punctuation">[</span>NOPASSWD:<span class="token punctuation">]</span> /path/to/command<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>这将限制用户只能执行指定路径下的命令。</p>
+</li>
+<li>
+<p><strong>禁止某些命令</strong>：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">username  <span class="token assign-left variable">ALL</span><span class="token operator">=</span><span class="token punctuation">(</span>ALL<span class="token punctuation">)</span> <span class="token operator">!</span>/path/to/command<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>这将阻止用户执行指定的命令。</p>
+</li>
+<li>
+<p><strong>授权指定用户以其他用户的身份执行命令</strong>：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">username  <span class="token assign-left variable">ALL</span><span class="token operator">=</span><span class="token punctuation">(</span>otheruser<span class="token punctuation">)</span> <span class="token punctuation">[</span>NOPASSWD:<span class="token punctuation">]</span> /path/to/command<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>允许用户以 <code>otheruser</code> 用户的身份执行命令。</p>
+</li>
+<li>
+<p><strong>别名的使用</strong>：</p>
+<p>你也可以定义别名来使配置文件更加清晰，例如：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">User_Alias  ADMINS <span class="token operator">=</span> user1, user2
+Cmnd_Alias  SYSTEM_CMDS <span class="token operator">=</span> /bin/ls, /bin/cat
+
+ADMINS  <span class="token assign-left variable">ALL</span><span class="token operator">=</span><span class="token punctuation">(</span>ALL<span class="token punctuation">)</span> SYSTEM_CMDS<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p>这样，<code>ADMINS</code> 别名包含了 <code>user1</code> 和 <code>user2</code> 用户，<code>SYSTEM_CMDS</code> 别名包含了 <code>/bin/ls</code> 和 <code>/bin/cat</code> 命令，然后 <code>ADMINS</code> 组可以执行 <code>SYSTEM_CMDS</code> 中的命令。</p>
+</li>
+</ol>
+<blockquote><p><strong>注意：</strong></p>
+<ul>
+<li>
+<p>在编辑 <code>sudoers</code> 文件时，一定要使用 <code>visudo</code> 命令，这样可以在保存文件时检查语法错误，以免导致系统无法启动。</p>
+</li>
+<li>
+<p>在 <code>/etc/sudoers</code> 文件中配置了 <code>username  ALL=(ALL) [NOPASSWD:] command</code> 这样的规则时，这意味着当用户 <code>username</code> 尝试执行 <code>command</code> 时，无论命令是否需要超级用户权限，只有在命令前加上 <code>sudo</code> 才会生效。</p>
+</li>
+<li>
+<p>另一方面，如果配置了阻止用户执行某些命令的规则，比如 <code>username ALL=(ALL) !/path/to/command</code>，即使用户尝试执行该命令时没有使用 <code>sudo</code>，系统也会阻止命令的执行。</p>
+</li>
+</ul>
+<p>所以，在配置了 <code>sudoers</code> 文件后：</p>
+<ul>
+<li>如果某个用户有权限执行某个命令，并且该命令不需要特权，那么用户可以在执行时不加 <code>sudo</code>。</li>
+<li>如果某个用户有权限执行某个命令，但是该命令需要特权，那么用户必须在执行时加上 <code>sudo</code>。</li>
+<li>如果某个用户被明确阻止执行某个命令，那么无论是否使用 <code>sudo</code>，该命令都不会被执行。</li>
+</ul>
+</blockquote>	
+<h4 id="4-用户组管理"><a class="markdownIt-Anchor" href="#4-用户组管理"></a> 4 用户组管理</h4>
+<p>对一个用户组进行创建和删除操作，都需要<code>root</code>用户的权限[下图是用户与用户组中间的关系图]</p>
+<img src="https://cdn.jsdelivr.net/gh/lusy37/Pictures@master/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202024-03-19%20222538.png" alt='' style="float: right; margin-right: 150px; margin-top: -5px;width: 350px; height: auto;">
+<h5 id="41-创建用户组"><a class="markdownIt-Anchor" href="#41-创建用户组"></a> 4.1 创建用户组</h5>
+<ul>
+<li>命令：<code>groupadd 用户组名</code></li>
+</ul>
+<h5 id="42-删除用户组"><a class="markdownIt-Anchor" href="#42-删除用户组"></a> 4.2 删除用户组</h5>
+<ul>
+<li>命令：<code>groupdel 用户组名</code></li>
+</ul>
+<h4 id="5-用户管理"><a class="markdownIt-Anchor" href="#5-用户管理"></a> 5 用户管理</h4>
+<h5 id="51-创建用户"><a class="markdownIt-Anchor" href="#51-创建用户"></a> 5.1 创建用户</h5>
+<ul>
+<li>命令：<code>useradd 用户名 [-g 用户组名 -d Linux路径]</code><br />
+<code>-g</code>：指定用户的组，不指定-g，会创建一个同名组并自动加入，指定-g需要组已经存在，如已存在同名组，必须使用-g<br />
+<code>-d</code>：指定用户home路径，不指定，home目录默认在：/home/用户名</li>
+</ul>
+<h5 id="52-删除用户"><a class="markdownIt-Anchor" href="#52-删除用户"></a> 5.2 删除用户</h5>
+<ul>
+<li>命令：<code>userdel [-r] 用户名</code><br />
+<code>-r</code>：删除用户的home路径，不是用<code>-r</code>,删除用户时，home目录会被保留</li>
+</ul>
+<h5 id="53-查看用户所属组"><a class="markdownIt-Anchor" href="#53-查看用户所属组"></a> 5.3 查看用户所属组</h5>
+<ul>
+<li>命令：<code>id [用户名]</code><br />
+<code>[用户名]</code>：被查看的用户，如果不提供则查看自身</li>
+</ul>
+<h5 id="54-修改用户所属组"><a class="markdownIt-Anchor" href="#54-修改用户所属组"></a> 5.4 修改用户所属组</h5>
+<ul>
+<li>命令：<code>usermod -aG 用户组 用户名</code><br />
+将指定用户加入指定用户组</li>
+</ul>
+<blockquote><p><strong>注意：</strong><br />
+原有的所属组也会保留，如要将用户从所属组删除，可以通过下面的命令</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> gpasswd <span class="token parameter variable">-d</span> 用户名 用户组名<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></blockquote>
+<h4 id="6-查看用户用户组"><a class="markdownIt-Anchor" href="#6-查看用户用户组"></a> 6 查看用户/用户组</h4>
+<ul>
+<li>命令：<code>getent passwd</code><br />
+用于查看当前系统中有哪些用户<br />
+共有7份信息,分别是:<br />
+用户名:密码(x):用户ID:组ID:描述信息(无用):HOME目录:执行终端(默认bash)</li>
+<li>命令：<code>getent group</code><br />
+用于查看当前系统中有哪些用户组<br />
+共有3份信息,分别是:<br />
+组名称：组认证(显示为x)：组ID</li>
+</ul>
+<h4 id="7-认知权限信息"><a class="markdownIt-Anchor" href="#7-认知权限信息"></a> 7 认知权限信息</h4>
+<p>可以通过<code>ls -l</code>或者<code>ll</code>命令，以列表的形式查看内容，并显示权限细节<br />
+<img src="https://cdn.jsdelivr.net/gh/lusy37/Pictures@master/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202024-03-20%20130750.png" alt="" /></p>
+<ul>
+<li>序号1：表示文件/文件夹的权限控制信息</li>
+<li>序号2：表示文件/文件夹所属用户</li>
+<li>序号3：表示文件/文件夹所属用户组</li>
+</ul>
+<blockquote><p>序号1的权限细节总共分为10个槽位<br />
+第一个槽位表示所属类型：<code>d</code>表示文件夹，<code>-</code>表示文件，<code>l</code>表示软连接<br />
+后9个槽位分为3组，每组3个槽位，这三组依次是：<code>所属用户权限</code>,<code>所属用户组权限</code>,<code>其他用户权限</code><br />
+每一组的三个槽位中，每个槽位依次是：<code>r</code>可读[查看文件夹内容]，<code>w</code>可写[创建，删除，改名]，<code>x</code>可执行[可更改工作目录到此文件夹]，<code>-</code>没有这个功能的权限<br />
+<strong>举例：</strong><br />
+<mark>drwxr-xr-x</mark></p>
+<ul>
+<li>这是一个文件夹，首字母<code>d</code>表示</li>
+<li>所属用户的权限是：<code>rwx</code></li>
+<li>所属用户组的权限是：<code>r-x</code>,表示有r无w有x</li>
+<li>其他用户的权限是：<code>r-x</code></li>
+</ul>
+</blockquote>
+<h4 id="8-chmod修改权限"><a class="markdownIt-Anchor" href="#8-chmod修改权限"></a> 8 chmod(修改权限)</h4>
+<ul>
+<li><code>chmod</code>：修改文件、文件夹的权限信息[<strong>注意</strong>：只有文件、文件夹的所属用户或root用户可以修改]</li>
+<li>用法：<code>chomd [-R] 权限 文件/文件夹</code><br />
+<code>-R</code>：对文件夹内的全部内容应用同样的操作<br />
+<code>权限</code>：<code>u=___,g=___,o=___</code><br />
+其中<code>u</code>表示user所属用户权限，<code>g</code>表示group组权限，<code>o</code>表示other其他用户权限。可以根据自己的需要修改相应权限</li>
+</ul>
+<blockquote><p><strong>举例：</strong><br />
+<mark>chmod u=rwx,g=rx,o=x hello.txt</mark><br />
+将hello.txt这个文件修改为所属<strong>用户</strong>可读可写可执行，所属<strong>用户组</strong>可读可执行，<strong>其他用户</strong>只能执行，没有读写权限。</p>
+</blockquote>
+<p><strong>快捷写法：</strong><br />
+<code>chmod u=rwx,g=rx,o=x hello.txt</code>可以改写成<code>chomd 751 hello.txt</code><br />
+在书写权限的<strong>可读、可写、可执行</strong>时，可以把<code>r</code>记为4,<code>w</code>记为2，<code>x</code>记为1。<br />
+所以rwx可以记为7，rx可以记为5，x可以记为1</p>
+<h4 id="9-chown修改所属用户用户组"><a class="markdownIt-Anchor" href="#9-chown修改所属用户用户组"></a> 9 chown(修改所属用户/用户组)</h4>
+<ul>
+<li><code>chown</code>：修改文件、文件夹的所属用户和用户组[<strong>普通用户无法修改所属为其他用户或组，所以此命令只适用于root用户</strong>]</li>
+<li>用法：<code>chown [-R] [用户][:][用户组] 文件或文件夹</code><br />
+<code>-R</code>：对文件夹内的全部内容应用同样的操作<br />
+<code>用户</code>：修改所属用户<br />
+<code>用户组</code>：修改所属用户组<br />
+<code>:</code>：用于分隔用户和用户组[<strong>只有填写了用户组，才需要加上冒号，如果只是修改所属用户，不需要添加</strong>]</li>
 </ul>
 <link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
                 
@@ -1167,7 +1589,7 @@ lusy <strong>love</strong></p>
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">20.1k</span>
+                        class="white-color">23k</span>
             
             
             
