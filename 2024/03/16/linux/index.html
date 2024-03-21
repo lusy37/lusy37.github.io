@@ -428,21 +428,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="fa fa-history fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2024-03-20
+                    2024-03-21
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    5k
+                    5.5k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    18 分
+                    20 分
                 </div>
                 
 
@@ -963,7 +963,7 @@ lusy <strong>love</strong></p>
 <li><code>NOPASSWD</code>：表示无需输入密码。</li>
 </ul>
 <p>例如，允许用户 <code>john</code> 在任何主机上以任何用户的身份执行 <code>/bin/ls</code> 命令，并且无需输入密码：</p>
-<pre class="line-numbers language-css" data-language="css"><code class="language-css">john ALL=<span class="token punctuation">(</span>ALL<span class="token punctuation">)</span> <span class="token property">NOPASSWD</span><span class="token punctuation">:</span> /bin/ls<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">john <span class="token assign-left variable">ALL</span><span class="token operator">=</span><span class="token punctuation">(</span>ALL<span class="token punctuation">)</span> NOPASSWD: /bin/ls<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 </li>
 <li>
 <p><strong>用户组授权</strong>：</p>
@@ -1112,6 +1112,109 @@ ADMINS  <span class="token assign-left variable">ALL</span><span class="token op
 <code>用户组</code>：修改所属用户组<br />
 <code>:</code>：用于分隔用户和用户组[<strong>只有填写了用户组，才需要加上冒号，如果只是修改所属用户，不需要添加</strong>]</li>
 </ul>
+<h3 id="快捷键"><a class="markdownIt-Anchor" href="#快捷键"></a> 快捷键</h3>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ctrl+c</code></td>
+<td>强制停止程序，退出命令输入</td>
+</tr>
+<tr>
+<td><code>ctrl+d</code></td>
+<td>退出或登出（不能用于vi/vim）</td>
+</tr>
+<tr>
+<td><code>history</code></td>
+<td>查看历史命令</td>
+</tr>
+<tr>
+<td><code>history ｜grep ch</code></td>
+<td>在历史记录中过滤带有<code>ch</code>命令[<code>ch</code>可换成自己想要过滤的关键词]</td>
+</tr>
+<tr>
+<td><code>！+命令的前缀</code></td>
+<td>自动匹配上一次匹配的前缀命令</td>
+</tr>
+<tr>
+<td><code>ctrl+r</code></td>
+<td>输入内容去匹配历史命令</td>
+</tr>
+<tr>
+<td><code>ctrl+a</code></td>
+<td>调到命令开头</td>
+</tr>
+<tr>
+<td><code>ctrl+e</code></td>
+<td>跳到命令结尾</td>
+</tr>
+<tr>
+<td><code>ctrl+键盘左键</code></td>
+<td>向左跳一个单词</td>
+</tr>
+<tr>
+<td><code>ctrl+键盘右键</code></td>
+<td>向右跳一个单词</td>
+</tr>
+<tr>
+<td><code>ctrl+l或者clear</code></td>
+<td>清空终端内容（清屏）</td>
+</tr>
+</tbody>
+</table>
+<h3 id="软件安装"><a class="markdownIt-Anchor" href="#软件安装"></a> 软件安装</h3>
+<h4 id="1-yum软件安装"><a class="markdownIt-Anchor" href="#1-yum软件安装"></a> 1 yum(软件安装)</h4>
+<ul>
+<li><code>yum</code>：RPM包软件管理器，用于自动化安装配置Linux软件，并可以自动解决依赖问题</li>
+<li>用法：<code>yum [-y] [install | remove | search] 软件名称</code><br />
+<code>-y</code>：自动确认，无需动手确认安装或卸载过程<br />
+<code>install</code>：安装<br />
+<code>remove</code>：卸载<br />
+<code>search</code>：搜索</li>
+</ul>
+<blockquote><p><strong>注意：</strong></p>
+<ul>
+<li>yum命令需要<code>root</code>权限</li>
+<li>yum命令需要<strong>联网</strong></li>
+</ul>
+</blockquote>
+<h4 id="2-systemctl管理软件"><a class="markdownIt-Anchor" href="#2-systemctl管理软件"></a> 2 systemctl(管理软件)</h4>
+<ul>
+<li><code>systemctl</code>：启动、停止、开机自启能够被syatemctl管理的软件，一般也称之为服务</li>
+<li>用法：<code>systemctl start | stop | status | enable | disable 服务名</code><br />
+<code>start</code>：启动<br />
+<code>stop</code>：关闭<br />
+<code>status</code>：查看状态<br />
+<code>enable</code>：开启开机自启<br />
+<code>disable</code>：关闭开机自启</li>
+</ul>
+<blockquote><p><strong>常见的服务</strong></p>
+<ul>
+<li><code>NetworkManager</code>：主网络服务</li>
+<li><code>network</code>：副网络服务</li>
+<li><code>firewalld</code>：防火墙服务</li>
+<li><code>sshd</code>：ssh服务(FinalShell远程登录Linux使用的就是这个服务)</li>
+</ul>
+</blockquote>
+<h4 id="3-ln软链接"><a class="markdownIt-Anchor" href="#3-ln软链接"></a> 3 ln(软链接)</h4>
+<ul>
+<li><code>ln</code>：在系统中创建软链接，可以将文件、文件夹链接到其它位置[类似于Windows中的&quot;快捷方式&quot;]</li>
+<li>用法：<code>ln -s 参数1 参数2</code><br />
+<code>-s</code>：创建软链接<br />
+<code>参数1</code>：被链接的文件或文件夹<br />
+<code>参数2</code>：要链接去的目的地</li>
+</ul>
+<blockquote><p><strong>删除软链接</strong><br />
+要删除 Linux 中的软链接，可以使用<code>rm</code>命令，其语法为：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">rm</span> 软链接文件名<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></blockquote>
+<p><strong>图例</strong>：<br />
+<img src="https://cdn.jsdelivr.net/gh/lusy37/Pictures@master/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202024-03-21%20223032.png"/><br />
+如果软链接出现爆红现象，那可能是被链接的文件或文件夹并不存在</p>
 <link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
                 
             </div>
@@ -1589,7 +1692,7 @@ ADMINS  <span class="token assign-left variable">ALL</span><span class="token op
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">23k</span>
+                        class="white-color">23.5k</span>
             
             
             
