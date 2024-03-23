@@ -435,14 +435,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    7.4k
+                    8.9k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    27 分
+                    33 分
                 </div>
                 
 
@@ -496,7 +496,7 @@ test/hello.txt<br />
 </ul>
 <h4 id="14-主机名"><a class="markdownIt-Anchor" href="#14-主机名"></a> 1.4 主机名</h4>
 <p><code>hostname</code>:查看主机名<br />
-<code>hostnamectl set-hostname 新名字</code>：修改主机名[更改主机名字，需要roo]</p>
+<code>hostnamectl set-hostname 新名字</code>：修改主机名[更改主机名字，需要root]</p>
 <h3 id="2-linux命令基础"><a class="markdownIt-Anchor" href="#2-linux命令基础"></a> 2 Linux命令基础</h3>
 <h4 id="21-ls展示内容"><a class="markdownIt-Anchor" href="#21-ls展示内容"></a> 2.1 ls(展示内容)</h4>
 <ul>
@@ -1326,6 +1326,127 @@ wget 可以下载单个文件，也可以通过递归下载整个网站的内容
 <li>用法：<code>top</code><br />
 默认<strong>每5秒刷新一次</strong>，可以按<code>q</code>或<code>Ctrl + c</code>退出</li>
 </ul>
+<p><img src="https://cdn.jsdelivr.net/gh/lusy37/Pictures@master/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202024-03-23%20204148.png" alt="" /></p>
+<ul>
+<li>第一行： <code>top</code>：命令名称，<code>20：41：40</code>：当前系统时间，<code>up 1：29</code>：启动了1小时29分钟，<code>2 users</code>：2个用户登录，<code>load average：0.26，0.39，0.40</code>：表示1，5，15分钟的平均负载</li>
+<li>第二行：<code>Tasks</code>：<code>174 total</code>：一共有174个进程，<code>4 running</code>：4个进程在运行，<code>170 sleeping</code>：170个进程睡眠，<code>0 stopped</code>：0个停止进程，<code>0 zombie</code>：-个僵尸进程</li>
+<li>第三行：<code>%Cpu(s)</code>：CPU使用率，<code>us</code>：用户CPU使用率，<code>sy</code>：系统CPU使用率，<code>ni</code>：高优先级进程占用CPU时间百分比，<code>id</code>：空闲CPU率，<code>wa</code>：IO等待CPU占用率，<code>hi</code>：CPU硬件中断率，<code>si</code>：CPU软件中断率，<code>st</code>：强制等待CPU占用率</li>
+<li>第四、五行：<code>Kib Mem</code>:物理内存,<code>total</code>:总量,<code>free</code>:空闲,<code>used</code>:使用,<code>buff/cache</code>:buff和cache占用<br />
+<code>KibSwap</code>:虚拟内存(交换空间),<code>total</code>:总量,<code>free</code>:空闲,<code>used</code>:使用,<code>buff/cache</code>:buff和cache占用</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/lusy37/Pictures@master/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202024-03-23%20210150.png" alt="" /></p>
+<ul>
+<li>PID:进程id</li>
+<li>USER:进程所属用户</li>
+<li>PR:进程优先级,越小越高</li>
+<li>NI:负值表示高优先级,正表示低优先级</li>
+<li>VIRT:进程使用虚拟内存,单位KB</li>
+<li>RES:进程使用物理内存,单位KB</li>
+<li>SHR:进程使用共享内存,单位KB</li>
+<li>S:进程状态(S休眠,R运行,Z僵死状态,N负数优先级,l空闲状态)</li>
+<li>%CPU:进程占用CPU率</li>
+<li>%MEM:进程占用内存率</li>
+<li>TIME+:进程使用CPU时间总计,单位10毫秒</li>
+<li>COMMAND:进程的命令或名称或程序文件路径</li>
+</ul>
+<p><strong>以下是<code>top</code>命令的常用选项及其功能：</strong></p>
+<table>
+<thead>
+<tr>
+<th>选项</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>-p</code></td>
+<td>只显示某个进程的信息</td>
+</tr>
+<tr>
+<td><code>-d</code></td>
+<td>设置刷新时间，默认是5秒</td>
+</tr>
+<tr>
+<td><code>-c</code></td>
+<td>显示产生进程的完整命令，而不是进程名</td>
+</tr>
+<tr>
+<td><code>-n</code></td>
+<td>指定刷新次数，例如<code>top -n 3</code>刷新输出3次后退出</td>
+</tr>
+<tr>
+<td><code>-b</code></td>
+<td>以非交互非全屏模式运行，以批次的方式执行<code>top</code>，一般配合<code>-n</code>指定输出几次统计信息，将输出重定向到指定文件，例如<code>top -b -n 3 &gt; /tmp/top.tmp</code></td>
+</tr>
+<tr>
+<td><code>-i</code></td>
+<td>不显示任何闲置(idle)或无用(zombie)的进程</td>
+</tr>
+<tr>
+<td><code>-u</code></td>
+<td>查找特定用户启动的进程</td>
+</tr>
+</tbody>
+</table>
+<p><strong>以下是<code>top</code>交互式模式(非-b选项启动)中常用的按键及其功能：</strong></p>
+<table>
+<thead>
+<tr>
+<th>按键</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>h</td>
+<td>显示帮助画面</td>
+</tr>
+<tr>
+<td>c</td>
+<td>显示产生进程的完整命令，等同于<code>-c</code>参数。再次按下<code>c</code>键，变为默认显示。</td>
+</tr>
+<tr>
+<td>f</td>
+<td>选择需要展示的项目</td>
+</tr>
+<tr>
+<td>M</td>
+<td>根据驻留内存大小(RES)排序</td>
+</tr>
+<tr>
+<td>P</td>
+<td>根据CPU使用百分比大小进行排序</td>
+</tr>
+<tr>
+<td>T</td>
+<td>根据时间/累计时间进行排序</td>
+</tr>
+<tr>
+<td>E</td>
+<td>切换顶部内存显示单位</td>
+</tr>
+<tr>
+<td>e</td>
+<td>切换进程内存显示单位</td>
+</tr>
+<tr>
+<td>1</td>
+<td>切换显示平均负载和启动时间信息</td>
+</tr>
+<tr>
+<td>i</td>
+<td>不显示闲置或无用的进程，等同于<code>-i</code>参数。再次按下，变为默认显示。</td>
+</tr>
+<tr>
+<td>t</td>
+<td>切换显示CPU状态信息</td>
+</tr>
+<tr>
+<td>m</td>
+<td>切换显示内存信息</td>
+</tr>
+</tbody>
+</table>
 <h5 id="572-df磁盘信息监控"><a class="markdownIt-Anchor" href="#572-df磁盘信息监控"></a> 5.7.2 df(磁盘信息监控)</h5>
 <ul>
 <li><code>df</code>：可以查看磁盘的使用情况</li>
@@ -1390,13 +1511,79 @@ wget 可以下载单个文件，也可以通过递归下载整个网站的内容
 </ul>
 </li>
 </ul>
-<h5 id="684-自定义环境变量path"><a class="markdownIt-Anchor" href="#684-自定义环境变量path"></a> 6.8.4 自定义环境变量PATH</h5>
+<h5 id="584-自定义环境变量path"><a class="markdownIt-Anchor" href="#584-自定义环境变量path"></a> 5.8.4 自定义环境变量PATH</h5>
 <ul>
 <li>创建一个可以执行的文件[自定义想要添加的文件]</li>
 <li><code>vim /etc/profile</code>[编写这个文件]</li>
 <li>在最后面加上 <code>export PATH=$PATH:自己要添加的搜索路径</code></li>
 <li><code>source 配置文件(/etc/profile)</code>，进行立即生效，或者重新启动系统</li>
 </ul>
+<h4 id="59-上传下载"><a class="markdownIt-Anchor" href="#59-上传下载"></a> 5.9 上传/下载</h4>
+<p>可以通过<strong>FinalShell</strong>的下方窗体进行文件的传输，<br />
+也可以通过<code>rz</code>,<code>sz</code>命令进行文件的传输[插件，<code>yum -y install lrzsz</code>]</p>
+<h5 id="591-rz上传"><a class="markdownIt-Anchor" href="#591-rz上传"></a> 5.9.1 rz(上传)</h5>
+<ul>
+<li><code>rz</code>：进行上传</li>
+<li>用法：<code>rz</code>[会弹出可视窗口]</li>
+</ul>
+<h5 id="592-sz下载"><a class="markdownIt-Anchor" href="#592-sz下载"></a> 5.9.2 sz(下载)</h5>
+<ul>
+<li><code>sz</code>：进行下载</li>
+<li>用法：<code>sz 要下载的文件</code><br />
+[文件会自动下载到桌面的：<strong>fsdownload</strong>文件夹中]</li>
+</ul>
+<h4 id="510-压缩解压"><a class="markdownIt-Anchor" href="#510-压缩解压"></a> 5.10 压缩/解压</h4>
+<ul>
+<li>Linux和Mac系统常用的2种压缩方式
+<ul>
+<li><code>.tar</code>：称为<code>tarball</code>，归档文件，简单的将文件组装成一个<code>.tar</code>的文件内，并没有太多文件体积的减少，仅仅是简单的封装</li>
+<li><code>.gz</code>：也称为<code>.tar.gz</code>,<code>gzip</code>格式压缩文件，即使用<strong>gzip</strong>压缩算法将文件压缩到一个文件内可以极大的减少压缩后的体积</li>
+</ul>
+</li>
+</ul>
+<h5 id="5101-tar压缩解压"><a class="markdownIt-Anchor" href="#5101-tar压缩解压"></a> 5.10.1 tar(压缩/解压)</h5>
+<ul>
+<li><code>tar</code>：可以针对上述的两种格式进行压缩和解压操作</li>
+<li>用法：<code>tar [-c -x -v -f -z -C] 参数1 参数2 …… 参数N</code><br />
+<code>-c</code>：创建归档文件，用于压缩模式<br />
+<code>-x</code>：解压模式<br />
+<code>-v</code>：显示压缩，解压过程，用于查看进度<br />
+<code>-f</code>：指定要创建的文件名或要解压的文件名，<code>-f</code>必须处于选项位最后一个(后面必须紧跟要创建的文件名或要解压的文件名)<br />
+<code>-z</code>：gzip模式，不使用<code>-z</code>则是普通的tarball格式(如果要用的话，一般放在选项位第一位)<br />
+<code>-C</code>：选择解压的目的地，用于解压模式。如果没有使用<code>-C</code>,默认解压到当前目录(建议单独使用，和解压所需的其它参数分开)</li>
+</ul>
+<blockquote><p><strong>tar的常用组合：</strong></p>
+<ul>
+<li><code>tar -cvf 压缩的文件名 要压缩的文件</code>
+<ul>
+<li>eg: <mark>tar -cvf test.tar 1.txt 2.txt 3.txt</mark><br />
+将1.txt 2.txt 3.txt压缩到test.tar文件内</li>
+</ul>
+</li>
+<li><code>tar -zcvf 压缩的文件名 要压缩的文件</code>
+<ul>
+<li>eg: <mark>tar -zcvf test.tar.gz 1.txt 2.txt 3.txt</mark><br />
+将1.txt 2.txt 3.txt压缩到test.tar.gz文件内,使用gzip模式</li>
+</ul>
+</li>
+<li><code>tar -xvf 解压的文件名</code></li>
+<li><code>tar -xvf 解压的文件名 -C Linux路径</code></li>
+<li><code>tar -zxvf 解压的文件名 -C Linux路径</code></li>
+</ul>
+</blockquote>
+<h5 id="5102-zipunzip压缩解压"><a class="markdownIt-Anchor" href="#5102-zipunzip压缩解压"></a> 5.10.2 zip/unzip(压缩/解压)</h5>
+<ul>
+<li><code>zip</code>：压缩为zip压缩包</li>
+<li>用法：<code>zip [-r] 参数1 参数2 …… 参数N</code><br />
+<code>-r</code>：被压缩的包含文件夹时，需要使用<br />
+<code>参数</code>：包含创建的压缩文件名 + 要压缩的文件</li>
+<li><code>unzip</code>：解压zip文件</li>
+<li>用法：<code>zip [-d] 参数1 参数2 …… 参数N</code><br />
+<code>-d</code>：指定要解压去的位置，同<code>tar</code>的<code>-C</code>文件</li>
+</ul>
+<blockquote><p><strong>注意：</strong><br />
+以上的解压操作如果指定的解压文件名存在，原来文件中的内容会直接被替换(覆盖)，要注意是否文件名已经存在或文件中的内容是否重要</p>
+</blockquote>
 <link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
                 
             </div>
@@ -1874,7 +2061,7 @@ wget 可以下载单个文件，也可以通过递归下载整个网站的内容
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">25.5k</span>
+                        class="white-color">26.9k</span>
             
             
             
