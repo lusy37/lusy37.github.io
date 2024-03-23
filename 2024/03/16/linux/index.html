@@ -435,14 +435,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    6.7k
+                    7.4k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    24 分
+                    27 分
                 </div>
                 
 
@@ -463,7 +463,7 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h2 id="linux学习"><a class="markdownIt-Anchor" href="#linux学习"></a> Linux学习</h2>
-<h3 id="1-路径"><a class="markdownIt-Anchor" href="#1-路径"></a> 1 路径</h3>
+<h3 id="1-路径和特殊ip"><a class="markdownIt-Anchor" href="#1-路径和特殊ip"></a> 1 路径和特殊IP</h3>
 <h4 id="11-基本路径"><a class="markdownIt-Anchor" href="#11-基本路径"></a> 1.1 基本路径</h4>
 <ul>
 <li><strong>绝对路径</strong>：以<code>根目录为起点</code>，描述路径的一种写法，路径描述以<code>/</code>开头</li>
@@ -483,6 +483,20 @@ test/hello.txt<br />
 <mark>在home目录内有一个test文件夹，文件夹内有一个文件hello.txt,描述文件的相对路径：</mark><br />
 ~/test/hello.txt</p>
 </blockquote>
+<h4 id="13-特殊ip地选"><a class="markdownIt-Anchor" href="#13-特殊ip地选"></a> 1.3 特殊IP地选</h4>
+<ul>
+<li><code>127.0.0.1</code>：指代本机</li>
+<li><code>0.0.0.0</code>：
+<ul>
+<li>可以用于指代本机</li>
+<li>可以在端口绑定中来确定绑定关系</li>
+<li>在一些IP地址限制中，表示所有IP的意思，如放行规则设置为0.0.0.0，表示允许任意IP访问</li>
+</ul>
+</li>
+</ul>
+<h4 id="14-主机名"><a class="markdownIt-Anchor" href="#14-主机名"></a> 1.4 主机名</h4>
+<p><code>hostname</code>:查看主机名<br />
+<code>hostnamectl set-hostname 新名字</code>：修改主机名[更改主机名字，需要roo]</p>
 <h3 id="2-linux命令基础"><a class="markdownIt-Anchor" href="#2-linux命令基础"></a> 2 Linux命令基础</h3>
 <h4 id="21-ls展示内容"><a class="markdownIt-Anchor" href="#21-ls展示内容"></a> 2.1 ls(展示内容)</h4>
 <ul>
@@ -1272,7 +1286,7 @@ wget 可以下载单个文件，也可以通过递归下载整个网站的内容
 <strong>图例：</strong><br />
 <img src="https://cdn.jsdelivr.net/gh/lusy37/Pictures@master/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202024-03-22%20230843.png" alt="" /></li>
 </ul>
-<h4 id="56-进程"><a class="markdownIt-Anchor" href="#56-进程"></a> 5.6 进程</h4>
+<h4 id="56-进程管理"><a class="markdownIt-Anchor" href="#56-进程管理"></a> 5.6 进程管理</h4>
 <blockquote>
 <p>程序运行在操作系统中,是被操作系统所管理的。<br />
 为管理运行的程序,每一个程序在运行的时候,便被操作系统注册为系统中的一个:进程<br />
@@ -1304,6 +1318,84 @@ wget 可以下载单个文件，也可以通过递归下载整个网站的内容
 <li><code>kill</code>：关闭指定进程</li>
 <li>用法：<code>kill [-9] 进程ID</code><br />
 <code>-9</code>：表示强制关闭进程</li>
+</ul>
+<h4 id="57-主机状态监控"><a class="markdownIt-Anchor" href="#57-主机状态监控"></a> 5.7 主机状态监控</h4>
+<h5 id="571-top查看任务管理器"><a class="markdownIt-Anchor" href="#571-top查看任务管理器"></a> 5.7.1 top(查看任务管理器)</h5>
+<ul>
+<li><code>top</code>：查看CPU、内存使用情况，类似windows的任务管理器</li>
+<li>用法：<code>top</code><br />
+默认<strong>每5秒刷新一次</strong>，可以按<code>q</code>或<code>Ctrl + c</code>退出</li>
+</ul>
+<h5 id="572-df磁盘信息监控"><a class="markdownIt-Anchor" href="#572-df磁盘信息监控"></a> 5.7.2 df(磁盘信息监控)</h5>
+<ul>
+<li><code>df</code>：可以查看磁盘的使用情况</li>
+<li>用法：<code>df [-h]</code><br />
+<code>-h</code>：以更加人性化的单位显示</li>
+</ul>
+<h5 id="573-iostatcpu磁盘信息监控"><a class="markdownIt-Anchor" href="#573-iostatcpu磁盘信息监控"></a> 5.7.3 iostat(CPU,磁盘信息监控)</h5>
+<ul>
+<li><code>iostat</code>：查看CPU、磁盘的相关信息</li>
+<li>用法：<code>iostat [-x] [num1] [num2]</code><br />
+<code>-x</code>: 显示更多信息<br />
+[常用：<code>rKB/s</code>:每秒发送到设备的读取请求数，<code>wKB/s</code>:每秒发送到设备的写入请求数， <code>%utill</code>:磁盘利用率]<br />
+<code>num1</code>: 刷新间隔<br />
+<code>num2</code>: 刷新次数</li>
+</ul>
+<h5 id="574-sar网络状态监控sar命令非常复杂这里仅简单用于统计网络"><a class="markdownIt-Anchor" href="#574-sar网络状态监控sar命令非常复杂这里仅简单用于统计网络"></a> 5.7.4 sar(网络状态监控)[sar命令非常复杂，这里仅简单用于统计网络]</h5>
+<ul>
+<li><code>sar</code>:查看网络的相关统计</li>
+<li>用法：<code>sar -n DEV num1 num2</code><br />
+<code>-n</code> 查看网络<br />
+<code>DEV</code> 查看网络接口<br />
+<code>num1</code> 刷新间隔<br />
+<code>num2</code> 查看次数</li>
+<li>[常用信息：<code>IFACE</code>：本地网卡接口的名称，<code>rxKB/s</code>：每秒接收的数据包大小，<code>txKB/s</code>：每秒发送的数据包大小]</li>
+</ul>
+<h4 id="58环境变量"><a class="markdownIt-Anchor" href="#58环境变量"></a> 5.8环境变量</h4>
+<h5 id="581-env查看环境变量"><a class="markdownIt-Anchor" href="#581-env查看环境变量"></a> 5.8.1 env(查看环境变量)</h5>
+<ul>
+<li><code>env</code>：查看当前系统中记录的环境变量</li>
+<li>用法：<code>env</code><br />
+<strong>PATH(环境变量)：</strong></li>
+<li><code>PATH</code>：记录了系统执行任何命令的搜索路径<br />
+[当在终端输入命令的时候，他会先从PATH中找这条命令所对应的程序，找不到就从当前路径下找]</li>
+</ul>
+<h5 id="582-取变量的值"><a class="markdownIt-Anchor" href="#582-取变量的值"></a> 5.8.2 $(取&quot;变量&quot;的值)</h5>
+<ul>
+<li><code>$</code>：用于取&quot;变量&quot;的值</li>
+<li>用法：<code>echo $环境变量名</code></li>
+</ul>
+<blockquote><p><strong>举例：</strong><br />
+<img src="https://cdn.jsdelivr.net/gh/lusy37/Pictures@master/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202024-03-23%20113912.png" alt="" /><br />
+如果要在环境变量后面追加上打印的信息，环境变量要用花括号包围起来</p>
+</blockquote>
+<h5 id="583-export设置环境变量"><a class="markdownIt-Anchor" href="#583-export设置环境变量"></a> 5.8.3 export(设置环境变量)</h5>
+<ul>
+<li><code>export</code>：可以自行设置环境变量</li>
+<li>用法:
+<ul>
+<li>
+<p>临时生效：<br />
+<code>export 变量名=变量值</code></p>
+</li>
+<li>
+<p>永久生效：<br />
+<code>export 变量名=变量值</code></p>
+<ul>
+<li>针对<strong>当前用户</strong>生效，配置在当前用户的 <code>~/bashrc</code>文件中</li>
+<li>针对<strong>所有用户</strong>生效，配置在系统的 <code>/etc/profile</code>文件中</li>
+</ul>
+<p>并通过语法：<code>source 配置文件(~/bashrc或者/etc/profile)</code>，进行立即生效，或者重新启动系统</p>
+</li>
+</ul>
+</li>
+</ul>
+<h5 id="684-自定义环境变量path"><a class="markdownIt-Anchor" href="#684-自定义环境变量path"></a> 6.8.4 自定义环境变量PATH</h5>
+<ul>
+<li>创建一个可以执行的文件[自定义想要添加的文件]</li>
+<li><code>vim /etc/profile</code>[编写这个文件]</li>
+<li>在最后面加上 <code>export PATH=$PATH:自己要添加的搜索路径</code></li>
+<li><code>source 配置文件(/etc/profile)</code>，进行立即生效，或者重新启动系统</li>
 </ul>
 <link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
                 
@@ -1782,7 +1874,7 @@ wget 可以下载单个文件，也可以通过递归下载整个网站的内容
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">24.7k</span>
+                        class="white-color">25.5k</span>
             
             
             
