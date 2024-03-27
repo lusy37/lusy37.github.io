@@ -428,7 +428,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="fa fa-history fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2024-03-26
+                    2024-03-27
                 </div>
                 
 
@@ -1585,30 +1585,27 @@ wget 可以下载单个文件，也可以通过递归下载整个网站的内容
 以上的解压操作如果指定的解压文件名存在，原来文件中的内容会直接被替换(覆盖)，要注意是否文件名已经存在或文件中的内容是否重要</p>
 </blockquote>
 <h3 id="补充命令-scp"><a class="markdownIt-Anchor" href="#补充命令-scp"></a> 补充命令 - scp</h3>
-<p>后续的安装部署操作，我们将会频繁的在多台服务器之间相互传输数据。<br />
-为了更加方面的互相传输，我们补充一个命令：scp<br />
-scp命令是cp命令的升级版，即：ssh cp，通过SSH协议完成文件的复制。<br />
+<ul>
+<li><code>scp</code>：是cp命令的升级版，即：ssh cp，通过SSH协议完成文件的复制。<br />
 其主要的功能就是：在不同的Linux服务器之间，通过<code>SSH</code>协议互相传输文件。<br />
 只要知晓服务器的账户和密码（或密钥），即可通过SCP互传文件。<br />
-语法：</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">scp</span> <span class="token punctuation">[</span>-r<span class="token punctuation">]</span> 参数1 参数2
-- -r选项用于复制文件夹使用，如果复制文件夹，必须使用-r
-- 参数1：本机路径 或 远程目标路径
-- 参数2：远程目标路径 或 本机路径
- 
-如：
-<span class="token function">scp</span> <span class="token parameter variable">-r</span> /export/server/jdk root@node2:/export/server/
+语法：</li>
+<li>用法：<code>scp [-r] 参数1 参数2</code><br />
+<code>-r</code>：选项用于复制文件夹使用，如果复制文件夹，必须使用-r<br />
+<code>参数1</code>：本机路径 或 远程目标路径<br />
+<code>参数2</code>：远程目标路径 或 本机路径</li>
+</ul>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">scp</span> <span class="token parameter variable">-r</span> /export/server/jdk root@node2:/export/server/
 将本机上的jdk文件夹， 以root的身份复制到node2的/export/server/内
 同SSH登陆一样，账户名可以省略（使用本机当前的同名账户登陆）
- 
-如：
+
 <span class="token function">scp</span> <span class="token parameter variable">-r</span> node2:/export/server/jdk /export/server/
 将远程node2的jdk文件夹，复制到本机的/export/server/内
  
 <span class="token comment"># scp命令的高级用法</span>
 <span class="token builtin class-name">cd</span> /export/server
 <span class="token function">scp</span> <span class="token parameter variable">-r</span> jdk node2:<span class="token variable"><span class="token variable">`</span><span class="token builtin class-name">pwd</span><span class="token variable">`</span></span>/    <span class="token comment"># 将本机当前路径的jdk文件夹，复制到node2服务器的同名路径下</span>
-<span class="token function">scp</span> <span class="token parameter variable">-r</span> jdk node2:<span class="token environment constant">$PWD</span>      <span class="token comment"># 将本机当前路径的jdk文件夹，复制到node2服务器的同名路径下</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
+<span class="token function">scp</span> <span class="token parameter variable">-r</span> jdk node2:<span class="token environment constant">$PWD</span>      <span class="token comment"># 将本机当前路径的jdk文件夹，复制到node2服务器的同名路径下</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
                 
             </div>
             <hr/>
@@ -2085,7 +2082,7 @@ scp命令是cp命令的升级版，即：ssh cp，通过SSH协议完成文件的
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">27.3k</span>
+                        class="white-color">27.2k</span>
             
             
             
