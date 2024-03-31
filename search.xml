@@ -8,7 +8,7 @@
       <link href="/2024/03/27/java-ji-chu-xue-xi/"/>
       <url>/2024/03/27/java-ji-chu-xue-xi/</url>
       
-        <content type="html"><![CDATA[<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
+        <content type="html"><![CDATA[<ul><li>不同类型数组的初始化值<br />整数型：默认初始化值0<br />小数型：默认初始化值0.0<br />字符型：默认初始化值<code>/u0000</code> 空格<br />布尔型：默认初始化值 false<br />引用型(除上面类型之外)：默认初始化值null</li></ul><link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
       
       
       
