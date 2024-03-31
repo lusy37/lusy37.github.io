@@ -428,21 +428,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="fa fa-history fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2024-03-23
+                    2024-03-31
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    6.3k
+                    7.4k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    26 分
+                    30 分
                 </div>
                 
 
@@ -1332,7 +1332,196 @@ map<span class="token operator">&lt;</span><span class="token keyword">int</span
 用法于<code>map</code>类似，也是红黑树实现，如要了解，可以自行搜索</p>
 </blockquote>
 <h2 id="7-set"><a class="markdownIt-Anchor" href="#7-set"></a> 7 set</h2>
-<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
+<h3 id="71-介绍"><a class="markdownIt-Anchor" href="#71-介绍"></a> 7.1 介绍</h3>
+<p>set容器的元素<strong>不会重复</strong>,当插入一个集合中已有的元素时,并不会插入就去,而且set容器里的元素会自动<strong>从小到大</strong>排序,即: set里面的元素<strong>不重复</strong>且<strong>有序</strong></p>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token comment">//头文件</span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span><span class="token string">&lt;set></span></span>
+<span class="token comment">//初始化定义</span>
+set<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">></span> s<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="72封装函数"><a class="markdownIt-Anchor" href="#72封装函数"></a> 7.2封装函数</h3>
+<table>
+<thead>
+<tr>
+<th>代码</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>s.begin()</code></td>
+<td>返回set容器的第一个元素的地址(迭代器)O(1)</td>
+</tr>
+<tr>
+<td><code>s.end()</code></td>
+<td>返回set容器的最后一个元素的下一个地址(迭代器)O(1)</td>
+</tr>
+<tr>
+<td><code>s.rbegin()</code></td>
+<td>返回逆序迭代器,指向容器元素最后一个位置O(1)</td>
+</tr>
+<tr>
+<td><code>s.rend()</code></td>
+<td>返回逆序迭代器,指向容器第一个元素前面的位置O(1)</td>
+</tr>
+<tr>
+<td><code>s.clear()</code></td>
+<td>删除set容器中的所有的元素,返回unsigned int类型O(N)</td>
+</tr>
+<tr>
+<td><code>s.empty()</code></td>
+<td>判断set容器是否为空O(1)</td>
+</tr>
+<tr>
+<td><code>s.insert(k)</code></td>
+<td>插入一个元素<code>k</code></td>
+</tr>
+<tr>
+<td><code>s.size()</code></td>
+<td>返回当前set容器中的元素个数O(1)</td>
+</tr>
+<tr>
+<td><code>s.erase(iterator)</code></td>
+<td>删除定位器iterator指向的值</td>
+</tr>
+<tr>
+<td><code>s.erase(first,last)</code></td>
+<td>删除定位器<code>[first,last)</code>之间的值</td>
+</tr>
+<tr>
+<td><code>s.erase(key)</code></td>
+<td>删除键值<code>key</code>的值</td>
+</tr>
+<tr>
+<td><code>s.find(element)</code></td>
+<td>查找set中的某一元素，有则返回该元素对应的迭代器，无则返回结束迭代器</td>
+</tr>
+<tr>
+<td><code>s.count(element)</code></td>
+<td>查找set中的元素出现的个数，由于set中元素唯一，此函数相当于查询<code>element</code>是否出现</td>
+</tr>
+<tr>
+<td><code>s.lower_bound(k)</code></td>
+<td>返回<strong>大于等于</strong><code>k</code>的第一个元素的迭代器</td>
+</tr>
+<tr>
+<td><code>s.upper_bound(k)</code></td>
+<td>返回<strong>大于</strong><code>k</code>的第一个元素的迭代器</td>
+</tr>
+</tbody>
+</table>
+<h3 id="73访问"><a class="markdownIt-Anchor" href="#73访问"></a> 7.3访问</h3>
+<ul>
+<li>迭代器访问</li>
+</ul>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">for</span><span class="token punctuation">(</span>set<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">></span><span class="token double-colon punctuation">::</span>iterator it <span class="token operator">=</span> s<span class="token punctuation">.</span><span class="token function">begin</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> it <span class="token operator">!=</span> s<span class="token punctuation">.</span><span class="token function">end</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> it<span class="token operator">++</span><span class="token punctuation">)</span>
+	cout <span class="token operator">&lt;&lt;</span> <span class="token operator">*</span>it <span class="token operator">&lt;&lt;</span> <span class="token string">" "</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<ul>
+<li>智能指针</li>
+</ul>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">auto</span> i <span class="token operator">:</span> s<span class="token punctuation">)</span>
+	cout <span class="token operator">&lt;&lt;</span> i <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<h3 id="74重载运算符"><a class="markdownIt-Anchor" href="#74重载运算符"></a> 7.4重载&lt;运算符</h3>
+<ul>
+<li>基础数据类型<br />
+方式一:改变set排序规则,set中默认使用less比较器,即<strong>从小到大</strong>排序(常用)</li>
+</ul>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">set<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">></span> s1<span class="token punctuation">;</span> <span class="token comment">// 默认从小到大排序</span>
+set<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token punctuation">,</span> greater<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">></span> <span class="token operator">></span> s2<span class="token punctuation">;</span> <span class="token comment">// 从大到小排序</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>方式二:重载运算符</p>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token comment">//重载 &lt; 运算符</span>
+<span class="token keyword">struct</span> <span class="token class-name">cmp</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">bool</span> <span class="token keyword">operator</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">(</span><span class="token keyword">const</span> <span class="token keyword">int</span><span class="token operator">&amp;</span> u<span class="token punctuation">,</span> <span class="token keyword">const</span> <span class="token keyword">int</span><span class="token operator">&amp;</span> v<span class="token punctuation">)</span> <span class="token keyword">const</span> <span class="token punctuation">&#123;</span>
+       <span class="token comment">// return + 返回条件</span>
+       <span class="token keyword">return</span> u <span class="token operator">></span> v<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+set<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token punctuation">,</span> cmp<span class="token operator">></span> s<span class="token punctuation">;</span> 
+
+<span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">&lt;=</span> <span class="token number">10</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span>
+    s<span class="token punctuation">.</span><span class="token function">insert</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">auto</span> i <span class="token operator">:</span> s<span class="token punctuation">)</span>
+    cout <span class="token operator">&lt;&lt;</span> i <span class="token operator">&lt;&lt;</span> <span class="token string">" "</span><span class="token punctuation">;</span>
+<span class="token comment">// 10 9 8 7 6 5 4 3 2 1</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>方式三:初始化时使用匿名函数定义比较规则</p>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">set<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token punctuation">,</span> function<span class="token operator">&lt;</span><span class="token keyword">bool</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">,</span> <span class="token keyword">int</span><span class="token punctuation">)</span><span class="token operator">>></span> <span class="token function">s</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token operator">&amp;</span><span class="token punctuation">]</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token punctuation">,</span> <span class="token keyword">int</span> j<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+    <span class="token keyword">return</span> i <span class="token operator">></span> j<span class="token punctuation">;</span> <span class="token comment">// 从大到小</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">&lt;=</span> <span class="token number">10</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span>
+    s<span class="token punctuation">.</span><span class="token function">insert</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">auto</span> x <span class="token operator">:</span> s<span class="token punctuation">)</span>
+    cout <span class="token operator">&lt;&lt;</span> x <span class="token operator">&lt;&lt;</span> <span class="token string">" "</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<ul>
+<li>高级数据结构类型(结构体)<br />
+直接重载结构体运算符即可,让结构体可以比较</li>
+</ul>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">struct</span> <span class="token class-name">Point</span> <span class="token punctuation">&#123;</span>
+	<span class="token keyword">int</span> x<span class="token punctuation">,</span> y<span class="token punctuation">;</span>
+	<span class="token keyword">bool</span> <span class="token keyword">operator</span> <span class="token operator">&lt;</span> <span class="token punctuation">(</span><span class="token keyword">const</span> Point <span class="token operator">&amp;</span>p<span class="token punctuation">)</span> <span class="token keyword">const</span> <span class="token punctuation">&#123;</span>
+		<span class="token comment">// 按照点的横坐标从小到大排序,如果横坐标相同,纵坐标从小到大</span>
+		<span class="token keyword">if</span><span class="token punctuation">(</span>x <span class="token operator">==</span> p<span class="token punctuation">.</span>x<span class="token punctuation">)</span>
+			<span class="token keyword">return</span> y <span class="token operator">&lt;</span> p<span class="token punctuation">.</span>y<span class="token punctuation">;</span>
+		<span class="token keyword">return</span> x <span class="token operator">&lt;</span> p<span class="token punctuation">.</span>x<span class="token punctuation">;</span>
+	<span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+
+set<span class="token operator">&lt;</span>Point<span class="token operator">></span> s<span class="token punctuation">;</span>
+<span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">&lt;=</span> <span class="token number">5</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">int</span> x<span class="token punctuation">,</span> y<span class="token punctuation">;</span>
+    cin <span class="token operator">>></span> x <span class="token operator">>></span> y<span class="token punctuation">;</span>
+    s<span class="token punctuation">.</span><span class="token function">insert</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>x<span class="token punctuation">,</span> y<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>	
+<span class="token comment">/* 输入
+5 4
+5 2
+3 7
+3 5
+4 8
+*/</span>
+
+<span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">auto</span> i <span class="token operator">:</span> s<span class="token punctuation">)</span>
+    cout <span class="token operator">&lt;&lt;</span> i<span class="token punctuation">.</span>x <span class="token operator">&lt;&lt;</span> <span class="token string">" "</span> <span class="token operator">&lt;&lt;</span> i<span class="token punctuation">.</span>y <span class="token operator">&lt;&lt;</span> <span class="token string">"\n"</span><span class="token punctuation">;</span>
+<span class="token comment">/* 输出
+3 5
+3 7
+4 8
+5 2
+5 4
+*/</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="75其它set"><a class="markdownIt-Anchor" href="#75其它set"></a> 7.5其它set</h3>
+<p><code>multiset</code>:元素可以重复,且元素有序(元素相等时,先插入的排在前面)<br />
+<code>unordered_set</code>:元素无序且只能出现一次<br />
+<code>unordered_multiset</code>:元素无序可以多次出现</p>
+<h2 id="8-pair"><a class="markdownIt-Anchor" href="#8-pair"></a> 8 pair</h2>
+<h3 id="81介绍"><a class="markdownIt-Anchor" href="#81介绍"></a> 8.1介绍</h3>
+<p>pair只含有两个元素,可以看作是只有两个元素的结构体<br />
+<strong>应用:</strong></p>
+<ul>
+<li>替代二元结构体</li>
+<li>支持比较操作符，可以使用 <code>==</code>、<code>!=</code>、<code>&lt;</code>、<code>&lt;=</code>、<code>&gt;</code>、<code>&gt;=</code> 来比较两个<code>pair</code>对象的大小关系。按字典序进行比较，先比较第一个元素，如果相等再比较第二个元素。(可以应用于优先队列,set等)</li>
+<li>作为<code>map</code>键值对进行插入(代码如下)</li>
+</ul>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">map<span class="token operator">&lt;</span>string<span class="token punctuation">,</span><span class="token keyword">int</span><span class="token operator">></span>mp<span class="token punctuation">;</span>
+mp<span class="token punctuation">.</span><span class="token function">insert</span><span class="token punctuation">(</span><span class="token generic-function"><span class="token function">pair</span><span class="token generic class-name"><span class="token operator">&lt;</span>string<span class="token punctuation">,</span><span class="token keyword">int</span><span class="token operator">></span></span></span><span class="token punctuation">(</span><span class="token string">"xingmaqi"</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// mp.insert(make_pair("xingmaqi", 1));</span>
+<span class="token comment">// mp.insert(&#123;"xingmaqi", 1&#125;);</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token comment">//头文件</span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span><span class="token string">&lt;utility></span></span>
+
+<span class="token comment">//1.初始化定义</span>
+pair<span class="token operator">&lt;</span>string<span class="token punctuation">,</span><span class="token keyword">int</span><span class="token operator">></span> <span class="token function">p</span><span class="token punctuation">(</span><span class="token string">"wangyaqi"</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//带初始值的</span>
+pair<span class="token operator">&lt;</span>string<span class="token punctuation">,</span><span class="token keyword">int</span><span class="token operator">></span> p<span class="token punctuation">;</span><span class="token comment">//不带初始值的</span>
+
+<span class="token comment">//2.赋值</span>
+p <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token string">"wang"</span><span class="token punctuation">,</span> <span class="token number">18</span><span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+p <span class="token operator">=</span> <span class="token function">make_pair</span><span class="token punctuation">(</span><span class="token string">"wang"</span><span class="token punctuation">,</span> <span class="token number">18</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+p <span class="token operator">=</span> <span class="token generic-function"><span class="token function">pair</span><span class="token generic class-name"><span class="token operator">&lt;</span>string<span class="token punctuation">,</span> <span class="token keyword">int</span><span class="token operator">></span></span></span><span class="token punctuation">(</span><span class="token string">"wang"</span><span class="token punctuation">,</span> <span class="token number">18</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="82访问"><a class="markdownIt-Anchor" href="#82访问"></a> 8.2访问</h3>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token comment">//定义结构体数组</span>
+pair<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token punctuation">,</span><span class="token keyword">int</span><span class="token operator">></span> p<span class="token punctuation">[</span><span class="token number">20</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token number">20</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+	<span class="token comment">//和结构体类似，first代表第一个元素，second代表第二个元素</span>
+	cout <span class="token operator">&lt;&lt;</span> p<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>first <span class="token operator">&lt;&lt;</span> <span class="token string">" "</span> <span class="token operator">&lt;&lt;</span> p<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>second<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
                 
             </div>
             <hr/>
@@ -1807,7 +1996,7 @@ map<span class="token operator">&lt;</span><span class="token keyword">int</span
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">27.3k</span>
+                        class="white-color">28.5k</span>
             
             
             
