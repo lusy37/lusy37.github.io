@@ -428,21 +428,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="fa fa-history fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2024-04-01
+                    2024-04-02
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    7.7k
+                    8.5k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    32 分
+                    35 分
                 </div>
                 
 
@@ -1586,6 +1586,95 @@ loading<span class="token punctuation">.</span><span class="token punctuation">.
 loading<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>  <span class="token number">8</span>
 loading<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>  <span class="token number">9</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="93string特性"><a class="markdownIt-Anchor" href="#93string特性"></a> 9.3string特性</h3>
+<ul>
+<li>支持<strong>比较</strong>运算符<br />
+string字符串支持常见的比较操作符<code>&gt;,&gt;=,&lt;,&lt;=,==,!=</code>，支持<code>string</code>与<code>C-string</code>的比较（如 <code>str</code> &lt; <code>&quot;hello&quot;</code>）。<br />
+在使用<code>&gt;,&gt;=,&lt;,&lt;=</code>这些操作符的时候是根据“当前字符特性”将字符按<code>字典顺序</code>进行逐一得 比较。字典排序靠前的字符小， 比较的顺序是从前向后比较，遇到不相等的字符就按这个位置上的两个字符的比较结果确定两个字符串的大小（前面减后面）。</li>
+</ul>
+<p>同时，<code>string (&quot;aaaa&quot;) &lt;string(&quot;aaaaa&quot;)</code>。</p>
+<ul>
+<li>支持<code>+</code><strong>运算符</strong>,代表拼接字符串<br />
+string字符串可以拼接,通过&quot;+&quot;运算符进行拼接</li>
+</ul>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">string s1 <span class="token operator">=</span> <span class="token string">"123"</span><span class="token punctuation">;</span>
+string s2 <span class="token operator">=</span> <span class="token string">"456"</span><span class="token punctuation">;</span>
+string s <span class="token operator">=</span> s1 <span class="token operator">+</span> s2<span class="token punctuation">;</span>
+cout <span class="token operator">&lt;&lt;</span> s<span class="token punctuation">;</span>   <span class="token comment">//123456</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="94读入详解"><a class="markdownIt-Anchor" href="#94读入详解"></a> 9.4读入详解</h3>
+<p><strong>读入字符串,遇空格,回车结束</strong></p>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">string s<span class="token punctuation">;</span>
+cin <span class="token operator">>></span> s<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p><strong>读入一行字符串(包含空格),遇回车结束</strong></p>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">string s<span class="token punctuation">;</span>
+<span class="token function">getline</span><span class="token punctuation">(</span>cin<span class="token punctuation">,</span>s<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>注意:<code>getline(cin,s)</code>会获取前一个输入的换行符,需要在前面添加读取换行符的语句.如:<code>getchar()</code>或<code>cin.get()</code><br />
+<strong>错误读取:</strong></p>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">int</span> n<span class="token punctuation">;</span>
+string s<span class="token punctuation">;</span>
+cin <span class="token operator">>></span> n<span class="token punctuation">;</span>
+<span class="token function">getline</span><span class="token punctuation">(</span>cin<span class="token punctuation">,</span> s<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//此时读取相当于读取了前一个回车字符</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p><strong>正确读取</strong></p>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">int</span> n<span class="token punctuation">;</span>
+string s<span class="token punctuation">;</span>
+cin <span class="token operator">>></span> n<span class="token punctuation">;</span>
+<span class="token function">getchar</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//cin.get()</span>
+<span class="token function">getline</span><span class="token punctuation">(</span>cin<span class="token punctuation">,</span> s<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//可正确读入下一行的输入</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<blockquote>
+<p><code>cin</code>与<code>getline()</code>混用<br />
+cin输入完后,回车,cin遇到回车符结束输入,但回车还在输入流中,cin并不会清除,导致<code>getline()</code>读取回车,结束读入.<br />
+需要在cin后面加上<code>cin.ignore()</code>;主动删除输入流中的换行符(不常用)</p>
+</blockquote>
+<p><strong>cin和cout解锁</strong><br />
+代码(写在main函数开头):</p>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">ios<span class="token double-colon punctuation">::</span><span class="token function">sync_with_stdio</span><span class="token punctuation">(</span><span class="token boolean">false</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+cin<span class="token punctuation">.</span><span class="token function">tie</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">,</span>cout<span class="token punctuation">.</span><span class="token function">tie</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<blockquote>
+<p>为什么要进行<code>cin</code>和<code>cout</code>的解锁，原因是：<br />
+在一些题目中，读入的<strong>数据量很大</strong>，往往超过了1e5（10<sup>5</sup>）的数据量,而<code>cin</code>和<code>cout</code>的读入输出的速度很慢（是因为<code>cin</code>和<code>cout</code>为了兼容C语言的读入输出在性能上做了妥协），远不如<code>scanf</code>和<code>printf</code>的速度，具体原因可以搜索相关的博客进行了解。<br />
+所以对<code>cin</code>和<code>cout</code>进行解锁使<code>cin</code>和<code>cout</code>的速度几乎接近<code>scanf</code>和<code>printf</code>，避免输入输出超时。</p>
+</blockquote>
+<p><strong>注意:</strong>  <code>cin</code>,<code>cout</code>解锁使用时，不能与 <code>scanf</code>,<code>getchar</code>, <code>printf</code>,<code>cin.getline()</code>混用，一定要注意，会出错。</p>
+<blockquote>
+<p><strong>string与C语言字符串（C-string）的区别:</strong></p>
+<ul>
+<li>string<br />
+是C++的一个类,专门实现字符串的相关操作,具有丰富的操作方法,数据类型为<code>string</code>,字符串的结尾是由类内部管理的，并且不需要显示地添加空字符 <code>\0</code>。</li>
+<li>C-string<br />
+C语言中的字符串，用char数组实现，类型为const char *,需要程序员手动确保字符串结尾以<code>\0</code>结束</li>
+</ul>
+</blockquote>
+<p>一般来说string向char数组转换会出现一些问题，所以为了能够实现转换，string有一个方法<code>c_str()</code>实现string向char数组的转换。</p>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">string s <span class="token operator">=</span> <span class="token string">"king ws qs"</span><span class="token punctuation">;</span>
+<span class="token keyword">char</span> s2<span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">=</span> s<span class="token punctuation">.</span><span class="token function">c_str</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<h3 id="95函数方法"><a class="markdownIt-Anchor" href="#95函数方法"></a> 9.5函数方法</h3>
+<ul>
+<li>获取字符串长度</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>代码</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>s.size()</code>和<code>s.length()</code></td>
+<td>返回string对象的字符个数,他们执行效果相同</td>
+</tr>
+<tr>
+<td><code>s.max_size()</code></td>
+<td>返回string对象最多包含的字符数，超出会抛出length_error异常</td>
+</tr>
+<tr>
+<td><code>s.capacity()</code></td>
+<td>重新分配内存之前，string对象能包含的最大字符数</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>插入</li>
+</ul>
 <link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
                 
             </div>
@@ -2061,7 +2150,7 @@ loading<span class="token punctuation">.</span><span class="token punctuation">.
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">28.7k</span>
+                        class="white-color">29.6k</span>
             
             
             
