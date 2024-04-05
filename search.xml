@@ -11,6 +11,20 @@
         <content type="html"><![CDATA[<h3 id="不同类型数组的初始化值"><a class="markdownIt-Anchor" href="#不同类型数组的初始化值"></a> 不同类型数组的初始化值</h3><p>整数型：默认初始化值<strong>0</strong><br />小数型：默认初始化值<strong>0.0</strong><br />字符型：默认初始化值<code>/u0000</code>,即<strong>空格</strong><br />布尔型：默认初始化值 <strong>false</strong><br />引用型(除上面类型之外)：默认初始化值<strong>null</strong></p><h3 id="基本数据类型和引用数据类型的区别"><a class="markdownIt-Anchor" href="#基本数据类型和引用数据类型的区别"></a> 基本数据类型和引用数据类型的区别</h3><ol><li><p><strong>基本数据类型（Primitive Types）：</strong></p><ul><li>Java的基本数据类型是预定义的，并且它们是直接存储数据值的。</li><li>基本数据类型包括整型（int、short、long、byte）、浮点型（float、double）、字符型（char）和布尔型（boolean）。</li><li>基本数据类型的变量存储的是实际的数据值，它们在内存中的存储是在栈（Stack）中。</li><li><strong>基本数据类型是值传递，传递的是实际的数据值。</strong></li></ul></li><li><p><strong>引用类型（Reference Types）：</strong></p><ul><li>引用类型是由类（Class）、接口（Interface）、数组（Array）和枚举（Enum）等引用数据类型所构成的。</li><li>引用类型的变量存储的是对象的引用（内存地址），而不是对象本身的实际数据。</li><li>引用类型的对象在内存中的存储是在堆（Heap）中。</li><li>引用类型的变量本质上是指向对象的引用，它们可以指向同一个对象，也可以指向不同的对象。</li><li><strong>引用类型是对象的引用传递，传递的是对象的引用。</strong></li></ul></li></ol><blockquote><p>区别总结如下：</p><ul><li><strong>基本数据类型</strong>（Primitive Types）：<ul><li>存储的是实际的数据值。</li><li>在内存中存储在栈中。</li><li>是值传递，传递的是实际的数据值。</li></ul></li><li><strong>引用类型</strong>（Reference Types）：<ul><li>存储的是对象的引用（内存地址）。</li><li>对象存储在堆中。</li><li>是引用传递，传递的是对象的引用。</li></ul></li></ul></blockquote><h3 id="idea的常用快捷键"><a class="markdownIt-Anchor" href="#idea的常用快捷键"></a> idea的常用快捷键</h3><ul><li><code>Ctrl + P</code>:查看形参</li><li><code>Ctrl + D</code>:复制当前行到下一行</li><li><code>Ctrl + Y</code>:删除代码</li><li><code>Ctrl + Shift + ,</code>:一键生成标准的JavaBean代码[需要下载ptg插件]</li><li><code>Ctrl + Alt + V</code>:自动将该表达式或代码块提取为一个新的变量</li><li><code>Ctrl + Alt + L</code>:格式化代码</li><li><code>Ctrl + Alt + M</code>:提取方法</li><li><code>Alt + Enter</code>:快速修复</li><li><code>Ctrl + Insert</code>:自动生成代码</li><li><code>Tab</code>:自动补全代码</li><li><code>Ctrl + B</code>:跳转到声明处</li><li><code>Ctrl + Alt + T</code>:选定结构(<code>if</code>语句,<code>while</code>语句)</li><li><code>Alt + 鼠标拖动</code>:多重选择[对多个对象同时进行删除或修改]</li><li><code>Ctrl + Shift + ↑/↓ </code>:代码上下移动</li></ul><link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
       
       
+      <categories>
+          
+          <category> 学习 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 学习总结 </tag>
+            
+            <tag> Java </tag>
+            
+        </tags>
       
     </entry>
     
