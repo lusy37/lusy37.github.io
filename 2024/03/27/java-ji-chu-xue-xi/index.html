@@ -644,7 +644,7 @@
 <li>StringBuffer<br />
 <code>StringBuffer</code> 是线程安全的，因为它的方法都是同步的，即在方法内部使用了 <code>synchronized</code> 关键字来确保在多线程环境下操作字符串时的安全性。这意味着当多个线程同时访问同一个 <code>StringBuffer</code> 对象时，它们的操作会被正确地同步，不会发生数据不一致的情况。</li>
 <li>StringBuilder<br />
-<code>StringBuilder</code> 是非线程安全的，因为它的方法没有进行同步处理。这样的设计可以提升性能，但也意味着在多线程环境下同时访问同一个 <code>StringBuilder</code> 对象时，可能会出现竞态条件（race condition），导致数据不一致或其他意外行为。</li>
+<code>StringBuilder</code> 是非线程安全的，因为它的方法没有进行同步处理。这样的设计可以提升性能[它不会引入额外的同步开销，这使得它的性能可能会稍微优于 StringBuffer。]，但也意味着在多线程环境下同时访问同一个 <code>StringBuilder</code> 对象时，可能会出现竞态条件（race condition），导致数据不一致或其他意外行为。</li>
 </ul>
 </blockquote>
 <div class='spoiler collapsed'>
