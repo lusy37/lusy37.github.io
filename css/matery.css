@@ -127,7 +127,7 @@ pre {
 pre {
     max-width: 100%; /* 设置最大宽度为父容器宽度 */
     width: auto; /* 自动适应内容的宽度 */
-    padding: 2rem 1rem 1rem 3rem !important;
+    padding: 2.7rem 1rem 1rem 3rem !important;
     border-radius: 0.35rem;
     tab-size: 4;
     overflow: hidden; /* 隐藏溢出内容 */
@@ -149,12 +149,12 @@ pre {
 
 code {
     padding: 1px 5px;
-    top: 13px !important;
     font-family: Inconsolata, Monaco, Consolas, 'Courier New', Courier, monospace;
     font-size: 0.91rem;
     color: #e96900;
     background-color: #f8f8f8;
     border-radius: 2px;
+    margin-top: 13px; /* 新增的样式 */
 }
 
 .code_copy {
