@@ -428,7 +428,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="fa fa-history fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2024-05-08
+                    2024-05-09
                 </div>
                 
 
@@ -462,36 +462,36 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="java-stream流"><a class="markdownIt-Anchor" href="#java-stream流"></a> Java Stream流</h2>
+                <h1 id="java-stream流"><a class="markdownIt-Anchor" href="#java-stream流"></a> Java Stream流</h1>
 
 <div class="markmap-container" style="height:450px">
   <svg data="{&quot;t&quot;:&quot;list_item&quot;,&quot;d&quot;:2,&quot;p&quot;:{&quot;lines&quot;:[0,1]},&quot;v&quot;:&quot;Java Stream流&quot;,&quot;c&quot;:[{&quot;t&quot;:&quot;list_item&quot;,&quot;d&quot;:4,&quot;p&quot;:{&quot;lines&quot;:[1,2]},&quot;v&quot;:&quot;概念&quot;,&quot;c&quot;:[{&quot;t&quot;:&quot;list_item&quot;,&quot;d&quot;:6,&quot;p&quot;:{&quot;lines&quot;:[2,4]},&quot;v&quot;:&quot;stream是对集合操作的增强，流不是集合的元素，不是一种数据结构，不负责数据的存储流，&lt;br&gt;\n更像是一个迭代器，可以单向的遍历一个集合中的每一个元素 ，并且不可循环【数据源】&quot;},{&quot;t&quot;:&quot;list_item&quot;,&quot;d&quot;:6,&quot;p&quot;:{&quot;lines&quot;:[4,5]},&quot;v&quot;:&quot;&lt;img src=\&quot;https://cdn.jsdelivr.net/gh/lusy37/Pictures@master/20240506221332.png\&quot; width=\&quot;200\&quot; height=\&quot;100\&quot;&gt;&quot;}]},{&quot;t&quot;:&quot;list_item&quot;,&quot;d&quot;:4,&quot;p&quot;:{&quot;lines&quot;:[5,6]},&quot;v&quot;:&quot;Stream特性&quot;,&quot;c&quot;:[{&quot;t&quot;:&quot;list_item&quot;,&quot;d&quot;:6,&quot;p&quot;:{&quot;lines&quot;:[6,7]},&quot;v&quot;:&quot;不存储数据[按照特定的规则对数据进行计算，一般会输出结果]&quot;},{&quot;t&quot;:&quot;list_item&quot;,&quot;d&quot;:6,&quot;p&quot;:{&quot;lines&quot;:[7,8]},&quot;v&quot;:&quot;不会改变数据源[通常情况下会产生一个新的集合或一个值]&quot;},{&quot;t&quot;:&quot;list_item&quot;,&quot;d&quot;:6,&quot;p&quot;:{&quot;lines&quot;:[8,9]},&quot;v&quot;:&quot;具有延迟执行特性[只有调用终端操作时，中间操作才会执行]&quot;}]},{&quot;t&quot;:&quot;list_item&quot;,&quot;d&quot;:4,&quot;p&quot;:{&quot;lines&quot;:[9,10]},&quot;v&quot;:&quot;Stream的生成&quot;,&quot;c&quot;:[{&quot;t&quot;:&quot;list_item&quot;,&quot;d&quot;:6,&quot;p&quot;:{&quot;lines&quot;:[10,11]},&quot;v&quot;:&quot;Collection.stream()[同步流]&quot;},{&quot;t&quot;:&quot;list_item&quot;,&quot;d&quot;:6,&quot;p&quot;:{&quot;lines&quot;:[11,12]},&quot;v&quot;:&quot;Collection.parallelStream()[并发、异步流]&quot;},{&quot;t&quot;:&quot;list_item&quot;,&quot;d&quot;:6,&quot;p&quot;:{&quot;lines&quot;:[12,13]},&quot;v&quot;:&quot;Arrays.stream()&quot;},{&quot;t&quot;:&quot;list_item&quot;,&quot;d&quot;:6,&quot;p&quot;:{&quot;lines&quot;:[13,14]},&quot;v&quot;:&quot;Stream的静态方法&quot;,&quot;c&quot;:[{&quot;t&quot;:&quot;list_item&quot;,&quot;d&quot;:8,&quot;p&quot;:{&quot;lines&quot;:[14,15],&quot;f&quot;:true},&quot;v&quot;:&quot;Stream.of()&quot;},{&quot;t&quot;:&quot;list_item&quot;,&quot;d&quot;:8,&quot;p&quot;:{&quot;lines&quot;:[15,16],&quot;f&quot;:true},&quot;v&quot;:&quot;Stream.iterate()&quot;},{&quot;t&quot;:&quot;list_item&quot;,&quot;d&quot;:8,&quot;p&quot;:{&quot;lines&quot;:[16,17],&quot;f&quot;:true},&quot;v&quot;:&quot;Stream.generate()&quot;}]},{&quot;t&quot;:&quot;list_item&quot;,&quot;d&quot;:6,&quot;p&quot;:{&quot;lines&quot;:[17,18]},&quot;v&quot;:&quot;文件创建&quot;,&quot;c&quot;:[{&quot;t&quot;:&quot;list_item&quot;,&quot;d&quot;:8,&quot;p&quot;:{&quot;lines&quot;:[18,19],&quot;f&quot;:true},&quot;v&quot;:&quot;BufferedReader.lines()&quot;},{&quot;t&quot;:&quot;list_item&quot;,&quot;d&quot;:8,&quot;p&quot;:{&quot;lines&quot;:[19,20],&quot;f&quot;:true},&quot;v&quot;:&quot;Files.lines()&quot;}]},{&quot;t&quot;:&quot;list_item&quot;,&quot;d&quot;:6,&quot;p&quot;:{&quot;lines&quot;:[20,21]},&quot;v&quot;:&quot;其他&quot;,&quot;c&quot;:[{&quot;t&quot;:&quot;list_item&quot;,&quot;d&quot;:8,&quot;p&quot;:{&quot;lines&quot;:[21,22],&quot;f&quot;:true},&quot;v&quot;:&quot;Pattrn.splitAsStream()&quot;},{&quot;t&quot;:&quot;list_item&quot;,&quot;d&quot;:8,&quot;p&quot;:{&quot;lines&quot;:[22,23],&quot;f&quot;:true},&quot;v&quot;:&quot;JarFile.stream()&quot;}]}]},{&quot;t&quot;:&quot;list_item&quot;,&quot;d&quot;:4,&quot;p&quot;:{&quot;lines&quot;:[23,24]},&quot;v&quot;:&quot;中间操作&quot;,&quot;c&quot;:[{&quot;t&quot;:&quot;list_item&quot;,&quot;d&quot;:6,&quot;p&quot;:{&quot;lines&quot;:[24,25]},&quot;v&quot;:&quot;筛选、去重：filter()、distinct()&quot;},{&quot;t&quot;:&quot;list_item&quot;,&quot;d&quot;:6,&quot;p&quot;:{&quot;lines&quot;:[25,26]},&quot;v&quot;:&quot;映射：map()、flatMap()&quot;},{&quot;t&quot;:&quot;list_item&quot;,&quot;d&quot;:6,&quot;p&quot;:{&quot;lines&quot;:[26,27]},&quot;v&quot;:&quot;排序：sorted()&quot;},{&quot;t&quot;:&quot;list_item&quot;,&quot;d&quot;:6,&quot;p&quot;:{&quot;lines&quot;:[27,28]},&quot;v&quot;:&quot;跳过、截取：skip()、limit()&quot;},{&quot;t&quot;:&quot;list_item&quot;,&quot;d&quot;:6,&quot;p&quot;:{&quot;lines&quot;:[28,29]},&quot;v&quot;:&quot;结合：concat()&quot;},{&quot;t&quot;:&quot;list_item&quot;,&quot;d&quot;:6,&quot;p&quot;:{&quot;lines&quot;:[29,30]},&quot;v&quot;:&quot;调试：peek()&quot;}]},{&quot;t&quot;:&quot;list_item&quot;,&quot;d&quot;:4,&quot;p&quot;:{&quot;lines&quot;:[30,31]},&quot;v&quot;:&quot;终端操作&quot;,&quot;c&quot;:[{&quot;t&quot;:&quot;list_item&quot;,&quot;d&quot;:6,&quot;p&quot;:{&quot;lines&quot;:[31,32]},&quot;v&quot;:&quot;遍历：forEach()&quot;},{&quot;t&quot;:&quot;list_item&quot;,&quot;d&quot;:6,&quot;p&quot;:{&quot;lines&quot;:[32,33]},&quot;v&quot;:&quot;匹配：findFirst()、findAny()、anyMatch()、allMatch()、noneMatch()&quot;},{&quot;t&quot;:&quot;list_item&quot;,&quot;d&quot;:6,&quot;p&quot;:{&quot;lines&quot;:[33,34]},&quot;v&quot;:&quot;规约：reducing()&quot;},{&quot;t&quot;:&quot;list_item&quot;,&quot;d&quot;:6,&quot;p&quot;:{&quot;lines&quot;:[34,35]},&quot;v&quot;:&quot;聚合：max()、min()、count()&quot;},{&quot;t&quot;:&quot;list_item&quot;,&quot;d&quot;:6,&quot;p&quot;:{&quot;lines&quot;:[35,36]},&quot;v&quot;:&quot;收集：&quot;,&quot;c&quot;:[{&quot;t&quot;:&quot;list_item&quot;,&quot;d&quot;:8,&quot;p&quot;:{&quot;lines&quot;:[36,37],&quot;f&quot;:true},&quot;v&quot;:&quot;toArray()&quot;},{&quot;t&quot;:&quot;list_item&quot;,&quot;d&quot;:8,&quot;p&quot;:{&quot;lines&quot;:[37,38],&quot;f&quot;:true},&quot;v&quot;:&quot;toList()&quot;},{&quot;t&quot;:&quot;list_item&quot;,&quot;d&quot;:8,&quot;p&quot;:{&quot;lines&quot;:[38,39],&quot;f&quot;:true},&quot;v&quot;:&quot;collect()&quot;,&quot;c&quot;:[{&quot;t&quot;:&quot;list_item&quot;,&quot;d&quot;:10,&quot;p&quot;:{&quot;lines&quot;:[39,40],&quot;f&quot;:true},&quot;v&quot;:&quot;统计：summarizing()[存在各种数据类型]、counting()、averaging()[存在各种数据类型]&quot;},{&quot;t&quot;:&quot;list_item&quot;,&quot;d&quot;:10,&quot;p&quot;:{&quot;lines&quot;:[40,41],&quot;f&quot;:true},&quot;v&quot;:&quot;分组：groupingBy()、partitioningBy()&quot;},{&quot;t&quot;:&quot;list_item&quot;,&quot;d&quot;:10,&quot;p&quot;:{&quot;lines&quot;:[41,42],&quot;f&quot;:true},&quot;v&quot;:&quot;接合：joining()&quot;},{&quot;t&quot;:&quot;list_item&quot;,&quot;d&quot;:10,&quot;p&quot;:{&quot;lines&quot;:[42,43],&quot;f&quot;:true},&quot;v&quot;:&quot;规约：reduce()&quot;},{&quot;t&quot;:&quot;list_item&quot;,&quot;d&quot;:10,&quot;p&quot;:{&quot;lines&quot;:[43,44],&quot;f&quot;:true},&quot;v&quot;:&quot;归集：toList()、toSet()、toMap()&quot;}]}]}]}]}"></svg>
 </div>
 
-<h3 id="1概述"><a class="markdownIt-Anchor" href="#1概述"></a> 1.概述</h3>
-<h4 id="11概念"><a class="markdownIt-Anchor" href="#11概念"></a> 1.1.概念</h4>
+<h2 id="1概述"><a class="markdownIt-Anchor" href="#1概述"></a> 1.概述</h2>
+<h3 id="11概念"><a class="markdownIt-Anchor" href="#11概念"></a> 1.1.概念</h3>
 <ul>
 <li><strong>Stream不是集合元素，它不是数据结构并不保存数据，它是有关算法和计算的，它更像一个高级版本的Iterator</strong>。原始版本的Iterator，用户只能显式地一个一个遍历元素并对其执行某些操作；高级版本的Stream，用户只要给出需要对其包含的元素执行什么操作，比如，“过滤掉长度大于 10 的字符串”、“获取每个字符串的首字母”等，Stream会隐式地在内部进行遍历，做出相应的数据转换。<strong>Stream就如同一个迭代器（Iterator），单向，不可往复，数据只能遍历一次，遍历过一次后即用尽了</strong>，就好比流水从面前流过，一去不复返。</li>
 <li>而和迭代器又不同的是，<strong>Stream可以并行化操作</strong>，迭代器只能命令式地、串行化操作。顾名思义，当使用串行方式去遍历时，每个item读完后再读下一个item。而使用并行去遍历时，数据会被分成多个段，其中每一个都在不同的线程中处理，然后将结果一起输出。Stream的并行操作依赖于Java7中引入的Fork/Join框架（JSR166y）来拆分任务和加速处理过程。</li>
 <li>Stream 的另外一大特点是，<strong>数据源本身可以是无限的</strong>。</li>
 </ul>
-<h4 id="12stream流的特性"><a class="markdownIt-Anchor" href="#12stream流的特性"></a> 1.2.Stream流的特性</h4>
+<h3 id="12stream流的特性"><a class="markdownIt-Anchor" href="#12stream流的特性"></a> 1.2.Stream流的特性</h3>
 <ul>
 <li>不存储数据[按照特定的规则对数据进行计算，一般会输出结果]</li>
 <li>不会改变数据源[通常情况下会产生一个新的集合或一个值]</li>
 <li>具有延迟执行特性[只有调用终端操作时，中间操作才会执行]</li>
 </ul>
-<h4 id="13stream流的作用"><a class="markdownIt-Anchor" href="#13stream流的作用"></a> 1.3.Stream流的作用</h4>
+<h3 id="13stream流的作用"><a class="markdownIt-Anchor" href="#13stream流的作用"></a> 1.3.Stream流的作用</h3>
 <p>结合Lambda表达式，简化集合、数组操作，提高代码的效率。</p>
-<h4 id="14stream流的使用步骤"><a class="markdownIt-Anchor" href="#14stream流的使用步骤"></a> 1.4.Stream流的使用步骤</h4>
+<h3 id="14stream流的使用步骤"><a class="markdownIt-Anchor" href="#14stream流的使用步骤"></a> 1.4.Stream流的使用步骤</h3>
 <ul>
 <li>获取数据源，将数据源中的数据读取到流中<br />
 <img src="https://cdn.jsdelivr.net/gh/lusy37/Pictures@master/20240507103133.png" alt="" /></li>
 <li>对流中的数据进行各种各样的处理[筛选、过滤……]    <strong>中间操作</strong>-&gt;方法调用完毕后会返回另一个流，还可以继续调用其他方法[建议使用链式编程]</li>
 <li>对流中的数据进行整合处理[遍历、统计……]    <strong>终端操作</strong>-&gt;方法调用完毕后，流就关闭了，不能再调用其他方法</li>
 </ul>
-<h3 id="2stream的生成"><a class="markdownIt-Anchor" href="#2stream的生成"></a> 2.Stream的生成</h3>
-<h4 id="21collectionstream-collectionparallelstream"><a class="markdownIt-Anchor" href="#21collectionstream-collectionparallelstream"></a> 2.1.Collection.stream()、Collection.parallelStream()</h4>
+<h2 id="2stream的生成"><a class="markdownIt-Anchor" href="#2stream的生成"></a> 2.Stream的生成</h2>
+<h3 id="21collectionstream-collectionparallelstream"><a class="markdownIt-Anchor" href="#21collectionstream-collectionparallelstream"></a> 2.1.Collection.stream()、Collection.parallelStream()</h3>
 <ul>
 <li>通过Collection接口中的<strong>stream</strong>()方法获取数据源为<strong>集合</strong>的流对象【同步流】：<code>Stream&lt;T&gt; stream() = list.stream();</code></li>
 <li>通过Collection接口中的<strong>parallelStream</strong>()方法获取数据源为<strong>集合</strong>的流对象【并发、异步流】：<code>Stream&lt;T&gt; parallelStream() = list.parallelStream();</code></li>
@@ -520,13 +520,13 @@
 <blockquote><p><strong>「stream和parallelStream的简单区分」</strong>: stream是顺序流，由主线程按顺序对流执行操作，而parallelStream是并行流，内部以多线程并行执行的方式对流进行操作，但前提是流中的数据处理没有顺序要求。例如筛选集合中的奇数，两者的处理不同之处：<br />
 <img src="https://cdn.jsdelivr.net/gh/lusy37/Pictures@master/20240507102247.png" alt="" /></p>
 </blockquote>
-<h4 id="22arraysstream"><a class="markdownIt-Anchor" href="#22arraysstream"></a> 2.2.Arrays.stream()</h4>
+<h3 id="22arraysstream"><a class="markdownIt-Anchor" href="#22arraysstream"></a> 2.2.Arrays.stream()</h3>
 <ul>
 <li>通过Arrays工具类中的<strong>stream</strong>(T[] array)方法获取数据源为<strong>数组</strong>的流对象：<code>IntStream stream = Arrays.stream(array);</code>[除了IntStream，还有LongStream、DoubleStream……]</li>
 </ul>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> array<span class="token operator">=</span><span class="token punctuation">&#123;</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">,</span><span class="token number">8</span><span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
 <span class="token class-name">IntStream</span> stream <span class="token operator">=</span> <span class="token class-name">Arrays</span><span class="token punctuation">.</span><span class="token function">stream</span><span class="token punctuation">(</span>array<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<h4 id="23stream的静态方法"><a class="markdownIt-Anchor" href="#23stream的静态方法"></a> 2.3.Stream的静态方法</h4>
+<h3 id="23stream的静态方法"><a class="markdownIt-Anchor" href="#23stream的静态方法"></a> 2.3.Stream的静态方法</h3>
 <ul>
 <li>通过Stream工具类中的<strong>of</strong>(T… values)方法获取数据源为<strong>一堆零散数据</strong>的流对象：<code>Stream&lt;T&gt; stream = Stream.of(array);</code></li>
 <li>通过Stream工具类中的<strong>iterate</strong>(T seed, UnaryOperator f)方法获取数据源为<strong>无限</strong>的流对象，其中第一个参数是种子值，第二个参数是一个函数，用于生成后续的元素：<code>Stream&lt;T&gt; stream = Stream.iterate(0, n -&gt; n + 2);</code></li>
@@ -555,7 +555,7 @@ stream3<span class="token punctuation">.</span><span class="token function">forE
   0.34339747950763355
   0.8263192360076247
   0.6455630248922111 */</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h4 id="24文件创建"><a class="markdownIt-Anchor" href="#24文件创建"></a> 2.4.文件创建</h4>
+<h3 id="24文件创建"><a class="markdownIt-Anchor" href="#24文件创建"></a> 2.4.文件创建</h3>
 <ul>
 <li>BufferedReader.lines()方法获取数据源为<strong>文件</strong>的流对象：<code>Stream&lt;String&gt; stream = new BufferedReader(new FileReader(filePath)).lines();</code></li>
 <li>通过Files工具类中的<strong>lines</strong>(Path path, Charset cs)方法获取数据源为<strong>文件</strong>的流对象：<code>Stream&lt;String&gt; stream = Files.lines(Paths.get(filePath), Charset.forName(charsetName));</code>【安全性更强，推荐使用】</li>
@@ -580,7 +580,7 @@ stream3<span class="token punctuation">.</span><span class="token function">forE
             <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">RuntimeException</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token punctuation">&#125;</span>
     <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h4 id="25其他"><a class="markdownIt-Anchor" href="#25其他"></a> 2.5.其他</h4>
+<h3 id="25其他"><a class="markdownIt-Anchor" href="#25其他"></a> 2.5.其他</h3>
 <ul>
 <li><strong>Pattrn.splitAsStream(CharSequence input)</strong>：是Pattern类中的一个方法，用于将字符串根据指定的正则表达式分割为流对象，其中参数为字符串，返回值为流对象。</li>
 <li><strong>JarFile.stream()</strong>：是JarFile类中的一个方法，用于将Jar文件中的条目(文件)转换为流对象，返回值为流对象。</li>
@@ -602,7 +602,7 @@ stream3<span class="token punctuation">.</span><span class="token function">forE
             <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">RuntimeException</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token punctuation">&#125;</span>
     <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="3中间操作"><a class="markdownIt-Anchor" href="#3中间操作"></a> 3.中间操作</h3>
+<h2 id="3中间操作"><a class="markdownIt-Anchor" href="#3中间操作"></a> 3.中间操作</h2>
 <p>中间操作又可以分为<strong>无状态（Stateless）操作</strong>与<strong>有状态（Stateful）操作</strong>，前者是指元素的处理不受之前元素的影响；后者是指该操作只有拿到所有元素之后才能继续下去。<br />
 <img src="https://cdn.jsdelivr.net/gh/lusy37/Pictures@master/20240508161846.png" alt="" /></p>
 <table>
@@ -655,7 +655,7 @@ stream3<span class="token punctuation">.</span><span class="token function">forE
 </tr>
 </tbody>
 </table>
-<h4 id="31筛选-去重"><a class="markdownIt-Anchor" href="#31筛选-去重"></a> 3.1.筛选、去重</h4>
+<h3 id="31筛选-去重"><a class="markdownIt-Anchor" href="#31筛选-去重"></a> 3.1.筛选、去重</h3>
 <p>filter()和distinct()方法用于筛选和去重流中的元素。</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span>  <span class="token punctuation">&#123;</span>
         <span class="token class-name">ArrayList</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Person</span><span class="token punctuation">></span></span> array <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -681,8 +681,8 @@ stream3<span class="token punctuation">.</span><span class="token function">forE
   Person&#123;name = 李四, age = 24&#125;
   Person&#123;name = 小思思, age = 23&#125;
   */</span>  <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h4 id="32映射"><a class="markdownIt-Anchor" href="#32映射"></a> 3.2.映射</h4>
-<h5 id="321map-方法"><a class="markdownIt-Anchor" href="#321map-方法"></a> 3.2.1.<strong>map() 方法</strong>：</h5>
+<h3 id="32映射"><a class="markdownIt-Anchor" href="#32映射"></a> 3.2.映射</h3>
+<h4 id="321map-方法"><a class="markdownIt-Anchor" href="#321map-方法"></a> 3.2.1.<strong>map() 方法</strong>：</h4>
 <ul>
 <li><code>map()</code> 方法接受一个函数作为参数，该函数用于将流中的每个元素映射到另一个值。这个映射后的值可以是<strong>任何类型</strong>，最后返回的流包含这些映射后的元素。</li>
 <li>对于每个输入元素，<code>map()</code> 方法都会生成一个对应的输出元素。</li>
@@ -709,7 +709,7 @@ stream3<span class="token punctuation">.</span><span class="token function">forE
     * 隔壁老王
     * 小思思
    */</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h5 id="322flatmap-方法"><a class="markdownIt-Anchor" href="#322flatmap-方法"></a> 3.2.2.<strong>flatMap() 方法</strong>：</h5>
+<h4 id="322flatmap-方法"><a class="markdownIt-Anchor" href="#322flatmap-方法"></a> 3.2.2.<strong>flatMap() 方法</strong>：</h4>
 <ul>
 <li><code>flatMap()</code> 方法也接受一个函数作为参数，但是这个函数的返回类型是一个流。这个函数会将流中的每个元素映射到<strong>另一个流</strong>。</li>
 <li>与 <code>map()</code> 方法不同，<code>flatMap()</code> 方法会将这些内部流合并成一个单一的流。内部流中的所有元素都会被合并到结果流中，形成一个扁平化的流。</li>
@@ -737,7 +737,7 @@ stream3<span class="token punctuation">.</span><span class="token function">forE
 2.把一维数组和结果态节点重新创建一个stream<br />
 3.执行stream把一维数组的元素循环放入结果态的list<br />
 循环二维数组，不断重复上述步骤，就可以把二维数组展开成一维数组了。</p>
-<h5 id="323map和flatmap的区别"><a class="markdownIt-Anchor" href="#323map和flatmap的区别"></a> 3.2.3.<strong>map()和flatMap()的区别</strong></h5>
+<h4 id="323map和flatmap的区别"><a class="markdownIt-Anchor" href="#323map和flatmap的区别"></a> 3.2.3.<strong>map()和flatMap()的区别</strong></h4>
 <blockquote><p><strong>总的来说:</strong></p>
 <ul>
 <li><code>map()</code> 方法是一对一的映射，而 <code>flatMap()</code> 方法可以处理一对多的映射，可以将多个流合并成一个流。</li>
@@ -782,7 +782,7 @@ list<span class="token punctuation">.</span><span class="token function">stream<
             &#125;
         &#125;).forEach(System.out::println);*/</span>
   <span class="token comment">// 在return s.split("\\s+");会报错，是因为split()方法返回的是一个数组，而map()方法要求返回的是一个对象。map并不能处理一对多的映射      </span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h4 id="33排序"><a class="markdownIt-Anchor" href="#33排序"></a> 3.3.排序</h4>
+<h3 id="33排序"><a class="markdownIt-Anchor" href="#33排序"></a> 3.3.排序</h3>
 <ul>
 <li><code>sorted()</code> 方法用于对流中的元素进行排序。默认情况下，排序是按照自然顺序进行的，即升序。【其中的元素必须实现 Comparable 接口，否则会抛出 ClassCastException 异常】</li>
 <li><code>sorted(Comparator&lt;T&gt; comparator)</code> 方法用于对流中的元素进行排序，并指定排序规则。我们可以使用lambda表达式来创建一个Comparator实例。可以自定义排序规则。</li>
@@ -821,7 +821,7 @@ list<span class="token punctuation">.</span><span class="token function">stream<
                 <span class="token keyword">new</span> <span class="token class-name">Person</span><span class="token punctuation">(</span><span class="token string">"lisi"</span><span class="token punctuation">,</span><span class="token number">24</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
         list<span class="token punctuation">.</span><span class="token function">stream</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">sorted</span><span class="token punctuation">(</span><span class="token punctuation">(</span>s1<span class="token punctuation">,</span> s2<span class="token punctuation">)</span> <span class="token operator">-></span> s2<span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">length</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-</span> s1<span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">length</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">)</span>
                 <span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token operator">::</span><span class="token function">println</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h4 id="34跳过-截取"><a class="markdownIt-Anchor" href="#34跳过-截取"></a> 3.4.跳过、截取</h4>
+<h3 id="34跳过-截取"><a class="markdownIt-Anchor" href="#34跳过-截取"></a> 3.4.跳过、截取</h3>
 <ul>
 <li><code>skip(long n)</code>：如果流的当前长度大于n，则跳过前n个；否则将会得到一个长度为0的空流。</li>
 <li><code>limit(long n)</code>：参数是一个long型，如果集合当前长度大于参数则进行截取；否则不进行操作。</li>
@@ -841,7 +841,7 @@ list<span class="token punctuation">.</span><span class="token function">stream<
         <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>result<span class="token punctuation">.</span><span class="token function">count</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 2：截取了 "张无忌" 和 "张三丰"</span>
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h4 id="35结合"><a class="markdownIt-Anchor" href="#35结合"></a> 3.5.结合</h4>
+<h3 id="35结合"><a class="markdownIt-Anchor" href="#35结合"></a> 3.5.结合</h3>
 <ul>
 <li><code>concat(Stream&lt;? extends T&gt; a, Stream&lt;? extends T&gt; b)</code> : 合并a和b两个流为一个流 【如果a和b的类型不同，合并出来的会是他们共同的父类】</li>
 </ul>
@@ -859,14 +859,14 @@ list<span class="token punctuation">.</span><span class="token function">stream<
         张翠山  */</span>    
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h4 id="36调试"><a class="markdownIt-Anchor" href="#36调试"></a> 3.6.调试</h4>
+<h3 id="36调试"><a class="markdownIt-Anchor" href="#36调试"></a> 3.6.调试</h3>
 <ul>
 <li><code>peek(Comsumer&lt;? super T&gt; action)</code>：它接受一个 Consumer 函数作为参数，该函数会被应用到流中的每个元素上。【不会销毁流对象】</li>
 </ul>
 <blockquote>
 <p>这个方法通常用于调试或记录流中元素的中间状态，或者在调试代码时查看流中元素的值，而不会对流进行实际操作。</p>
 </blockquote>
-<h5 id="361对流中的元素进行遍历"><a class="markdownIt-Anchor" href="#361对流中的元素进行遍历"></a> 3.6.1.对流中的元素进行遍历</h5>
+<h4 id="361对流中的元素进行遍历"><a class="markdownIt-Anchor" href="#361对流中的元素进行遍历"></a> 3.6.1.对流中的元素进行遍历</h4>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span>userInfo<span class="token punctuation">></span></span> userList <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token class-name">Collections</span><span class="token punctuation">.</span><span class="token function">addAll</span><span class="token punctuation">(</span>userList<span class="token punctuation">,</span>
         <span class="token keyword">new</span> <span class="token function">userInfo</span><span class="token punctuation">(</span><span class="token number">18</span><span class="token punctuation">,</span><span class="token number">30</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
@@ -882,7 +882,7 @@ userInof&#123;Age = 18, Money = 34&#125;
 userInof&#123;Age = 17, Money = 28&#125;
 [userInof&#123;Age = 18, Money = 30&#125;, userInof&#123;Age = 18, Money = 34&#125;, userInof&#123;Age = 17, Money = 28&#125;]
 */</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h5 id="362对流中的对象进行修改"><a class="markdownIt-Anchor" href="#362对流中的对象进行修改"></a> 3.6.2.对流中的对象进行修改</h5>
+<h4 id="362对流中的对象进行修改"><a class="markdownIt-Anchor" href="#362对流中的对象进行修改"></a> 3.6.2.对流中的对象进行修改</h4>
 <p>在Java的Stream中，它实际上是对原始数据的引用。</p>
 <ul>
 <li>对于基本数据类型：修改只会作用在<code>peek()</code>方法的内部，因为基本数据类型是按值传递的，<code>peek()</code>方法中的参数是局部变量，对它们的修改不会影响到原始数据。所以，对基本数据类型进行的修改只会作用在peek()方法的内部。</li>
@@ -951,7 +951,7 @@ bananaapple
 cherryapple
 [appleapple, bananaapple, cherryapple]
 */</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h5 id="363peek方法的时序图"><a class="markdownIt-Anchor" href="#363peek方法的时序图"></a> 3.6.3.peek()方法的时序图</h5>
+<h4 id="363peek方法的时序图"><a class="markdownIt-Anchor" href="#363peek方法的时序图"></a> 3.6.3.peek()方法的时序图</h4>
 <p>针对前面的代码在peek()方法后执行forEach()方法时，输出顺序是先运行一次peek()方法，再运行一次forEach()方法，这样子迭代下去的这个问题，我们通过时序图来解释。</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">//首先初始化输入列表</span>
 <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">></span></span> list1 <span class="token operator">=</span> <span class="token class-name">List</span><span class="token punctuation">.</span><span class="token function">of</span><span class="token punctuation">(</span><span class="token string">"1"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -967,7 +967,7 @@ cherryapple
         <span class="token punctuation">.</span><span class="token function">collect</span><span class="token punctuation">(</span><span class="token class-name">Collectors</span><span class="token punctuation">.</span><span class="token function">toList</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><img src="https://cdn.jsdelivr.net/gh/lusy37/Pictures@master/20240508120158.png" alt="" /><br />
 通过时序图我们可以发现，由于中间操作peek()、filter()和flatMap()都是属于无状态，所以在流(Stream)中，对于每个元素，会先执行完整条流中的所有操作，然后才处理下一个元素。这意味着，对于每个元素，先运行完整条流中的操作链，然后再处理下一个元素。而不是等待所有元素的某个操作完成后再进行下一个操作。</p>
-<h5 id="364peek方法的坑"><a class="markdownIt-Anchor" href="#364peek方法的坑"></a> 3.6.4.peek()方法的坑</h5>
+<h4 id="364peek方法的坑"><a class="markdownIt-Anchor" href="#364peek方法的坑"></a> 3.6.4.peek()方法的坑</h4>
 <ul>
 <li>
 <p><strong>坑一：peek() 不影响流的生成和消费</strong><br />
@@ -994,7 +994,7 @@ peek()通常用于读取或打印流元素，而不是修改它们。虽然理�
 peek()方法通常用于读取或打印流元素，而不是修改它们。然而，如果流中的元素是可变对象，并且在peek()中对其进行了修改，这些修改可能会影响到流中的数据以及原始数据。这是因为可变对象的特性使得对其进行的修改会在流中传递，可能会对后续的操作产生意外的影响。因此，在处理可变对象时，需要格外小心，并确保了解其对流处理的影响。</p>
 </li>
 </ul>
-<h3 id="4终结操作"><a class="markdownIt-Anchor" href="#4终结操作"></a> 4.终结操作</h3>
+<h2 id="4终结操作"><a class="markdownIt-Anchor" href="#4终结操作"></a> 4.终结操作</h2>
 <p>结束操作又可以分为<strong>短路操作</strong>与<strong>非短路操作</strong>，前者是指遇到某些符合条件的元素就可以得到最终结果；而后者是指必须处理所有元素才能得到最终结果。<br />
 <img src="https://cdn.jsdelivr.net/gh/lusy37/Pictures@master/20240508163154.png" alt="" /></p>
 <table>
@@ -1063,7 +1063,7 @@ peek()方法通常用于读取或打印流元素，而不是修改它们。然�
 </tr>
 </tbody>
 </table>
-<h4 id="41遍历"><a class="markdownIt-Anchor" href="#41遍历"></a> 4.1.遍历</h4>
+<h3 id="41遍历"><a class="markdownIt-Anchor" href="#41遍历"></a> 4.1.遍历</h3>
 <p><code>forEach(Consumer&lt;? super T&gt; action)</code>：遍历流中的元素，并对每个元素执行指定的操作。【打印、计算、转换……】</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">// forEach遍历打印</span>
 <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Integer</span><span class="token punctuation">></span></span> list1 <span class="token operator">=</span> <span class="token class-name">List</span><span class="token punctuation">.</span><span class="token function">of</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">7</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -1080,7 +1080,7 @@ list2<span class="token punctuation">.</span><span class="token function">forEac
 <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">></span></span> upperCaseStrings <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 strings<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token class-name">String</span> s<span class="token punctuation">)</span> <span class="token operator">-></span> upperCaseStrings<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>s<span class="token punctuation">.</span><span class="token function">toUpperCase</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Upper case strings: "</span> <span class="token operator">+</span> upperCaseStrings<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 输出 Upper case strings: [APPLE, BANANA, CHERRY]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h4 id="42匹配"><a class="markdownIt-Anchor" href="#42匹配"></a> 4.2.匹配</h4>
+<h3 id="42匹配"><a class="markdownIt-Anchor" href="#42匹配"></a> 4.2.匹配</h3>
 <ul>
 <li><code>findFirst()</code>：返回流中的第一个元素，如果流为空，则返回一个空的Optional对象。</li>
 <li><code>findAny()</code>：返回流中的任意一个元素，如果流为空，则返回一个空的Optional对象。</li>
@@ -1102,7 +1102,7 @@ strings<span class="token punctuation">.</span><span class="token function">forE
 <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>list2<span class="token punctuation">.</span><span class="token function">stream</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">allMatch</span><span class="token punctuation">(</span>x <span class="token operator">-></span> x <span class="token operator">%</span> <span class="token number">3</span> <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 输出：true</span>
 <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>list2<span class="token punctuation">.</span><span class="token function">stream</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">noneMatch</span><span class="token punctuation">(</span>x <span class="token operator">-></span> x <span class="token operator">%</span> <span class="token number">3</span> <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">// 输出：true</span>
 <span class="token comment">// 如果list是null,在执行流操作时，会抛出NullPointerException异常。</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h4 id="43规约"><a class="markdownIt-Anchor" href="#43规约"></a> 4.3.规约</h4>
+<h3 id="43规约"><a class="markdownIt-Anchor" href="#43规约"></a> 4.3.规约</h3>
 <ul>
 <li><code>reduce(BinaryOperator&lt;T&gt; accumulator)</code>：将流中的元素按照指定的规则进行合并，返回合并后的结果。如果流为空，返回的 Optional 对象也为空。
 <ul>
@@ -1239,7 +1239,7 @@ threadId=1, integer1=3, integer2=12
 <span class="token comment">//combiner.apply(u1,u2) 接收两个相同类型U的参数 </span>
 <span class="token comment">//accumulator.apply(u, t) 接收两个不同类型的参数U和T，U是返回值的类型，T是集合中元素的类型</span>
 <span class="token comment">//这个等式恒等，parallelStream计算时就不会产生错误结果</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></blockquote>
-<h4 id="44聚合"><a class="markdownIt-Anchor" href="#44聚合"></a> 4.4.聚合</h4>
+<h3 id="44聚合"><a class="markdownIt-Anchor" href="#44聚合"></a> 4.4.聚合</h3>
 <ul>
 <li><code>max(Comparator&lt;? super T&gt; comparator)</code>: 返回流中最大的元素，如果流为空，则返回一个空的Optional对象。</li>
 <li><code>max(Comparator&lt;? super T&gt; comparator)</code>: 返回流中最小的元素，如果流为空，则返回一个空的Optional对象。</li>
@@ -1251,8 +1251,8 @@ threadId=1, integer1=3, integer2=12
   <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>list<span class="token punctuation">.</span><span class="token function">stream</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">count</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">// 输出：5</span>
   list <span class="token operator">=</span> <span class="token class-name">List</span><span class="token punctuation">.</span><span class="token function">of</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>list<span class="token punctuation">.</span><span class="token function">stream</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">max</span><span class="token punctuation">(</span><span class="token class-name">Integer</span><span class="token operator">::</span><span class="token function">compare</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">// 输出：Optional.empty</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h4 id="45收集"><a class="markdownIt-Anchor" href="#45收集"></a> 4.5.收集</h4>
-<h5 id="451toarray"><a class="markdownIt-Anchor" href="#451toarray"></a> 4.5.1.toArray</h5>
+<h3 id="45收集"><a class="markdownIt-Anchor" href="#45收集"></a> 4.5.收集</h3>
+<h4 id="451toarray"><a class="markdownIt-Anchor" href="#451toarray"></a> 4.5.1.toArray</h4>
 <ul>
 <li><code>toArray()</code>: 返回一个Object[]数组，其中包含Stream中的所有元素。</li>
 <li><code>toArray(IntFunction&lt;A[]&gt; generator)</code>：可以指定返回数组的类型。参数 generator 是一个数组生成器函数，它根据提供的数组长度创建一个新数组。这使得我们可以在返回的数组中指定元素的类型。</li>
@@ -1268,18 +1268,18 @@ threadId=1, integer1=3, integer2=12
      <span class="token class-name">Person</span><span class="token punctuation">[</span><span class="token punctuation">]</span> array2 <span class="token operator">=</span> list<span class="token punctuation">.</span><span class="token function">stream</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toArray</span><span class="token punctuation">(</span>v <span class="token operator">-></span> <span class="token keyword">new</span> <span class="token class-name">Person</span><span class="token punctuation">[</span>v<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
      <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token class-name">Arrays</span><span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span>array2<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
      <span class="token comment">// 输出：[Person&#123;name = 张三, age = 23&#125;, Person&#123;name = 李四, age = 24&#125;, Person&#123;name = 王五, age = 25&#125;]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h5 id="452tolist"><a class="markdownIt-Anchor" href="#452tolist"></a> 4.5.2.toList</h5>
+<h4 id="452tolist"><a class="markdownIt-Anchor" href="#452tolist"></a> 4.5.2.toList</h4>
 <ul>
 <li><code>toList()</code>: 返回一个包含Stream中所有元素的List。</li>
 </ul>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Integer</span><span class="token punctuation">></span></span> list <span class="token operator">=</span> <span class="token class-name">Stream</span><span class="token punctuation">.</span><span class="token function">of</span><span class="token punctuation">(</span><span class="token number">32</span><span class="token punctuation">,</span> <span class="token number">11</span><span class="token punctuation">,</span> <span class="token number">23</span><span class="token punctuation">,</span> <span class="token number">434</span><span class="token punctuation">,</span> <span class="token number">54</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toList</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>list<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token comment">// 输出：[32, 11, 23, 434, 54]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<h5 id="453collect"><a class="markdownIt-Anchor" href="#453collect"></a> 4.5.3.collect</h5>
+<h4 id="453collect"><a class="markdownIt-Anchor" href="#453collect"></a> 4.5.3.collect</h4>
 <ul>
 <li><code>collect(Collector&lt;? super T, A, R&gt; collector)</code>: 将Stream中的元素收集到一个容器中，并返回该容器。</li>
 </ul>
-<h6 id="4531统计"><a class="markdownIt-Anchor" href="#4531统计"></a> 4.5.3.1.统计</h6>
+<h5 id="4531统计"><a class="markdownIt-Anchor" href="#4531统计"></a> 4.5.3.1.统计</h5>
 <ul>
 <li><code>Collectors.counting()</code>: 返回流中元素的个数。</li>
 <li><code>Collectors.summingInt(ToIntFunction&lt;? super T&gt; mapper)</code>: 返回流中元素的和。</li>
@@ -1299,7 +1299,7 @@ threadId=1, integer1=3, integer2=12
 <span class="token comment">// 平均值</span>
 <span class="token keyword">double</span> average <span class="token operator">=</span> numbers<span class="token punctuation">.</span><span class="token function">stream</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">collect</span><span class="token punctuation">(</span><span class="token class-name">Collectors</span><span class="token punctuation">.</span><span class="token function">averagingInt</span><span class="token punctuation">(</span><span class="token class-name">Integer</span><span class="token operator">::</span><span class="token function">intValue</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Average: "</span> <span class="token operator">+</span> average<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">// Average: 3.0</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h4 id="4532分组"><a class="markdownIt-Anchor" href="#4532分组"></a> 4.5.3.2分组</h4>
+<h5 id="4532分组"><a class="markdownIt-Anchor" href="#4532分组"></a> 4.5.3.2分组</h5>
 <ul>
 <li><code>Collectors.groupingBy(Function&lt;? super T, ? extends K&gt; classifier)</code>: 根据给定的分类函数对Stream中的元素进行分组，并返回一个Map，其中键是分类函数的结果，值是包含对应分类的元素的List。</li>
 <li><code>Collectors.partitioningBy(Predicate&lt;? super T&gt; predicate)</code>: 根据给定的断言函数对Stream中的元素进行分区，并返回一个Map，其中键是true和false，值是包含对应分类的元素的List。</li>
@@ -1317,7 +1317,7 @@ threadId=1, integer1=3, integer2=12
         <span class="token punctuation">.</span><span class="token function">collect</span><span class="token punctuation">(</span><span class="token class-name">Collectors</span><span class="token punctuation">.</span><span class="token function">partitioningBy</span><span class="token punctuation">(</span>word <span class="token operator">-></span> word<span class="token punctuation">.</span><span class="token function">length</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">></span> <span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Partitioned by length (>5): "</span> <span class="token operator">+</span> partitionedByLength<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token comment">//输出：Partitioned by length (>5): &#123;false=[apple, grape], true=[banana, orange, cherry]&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h4 id="4533连接"><a class="markdownIt-Anchor" href="#4533连接"></a> 4.5.3.3连接</h4>
+<h5 id="4533连接"><a class="markdownIt-Anchor" href="#4533连接"></a> 4.5.3.3连接</h5>
 <ul>
 <li><code>Collectors.joining(CharSequence delimiter)</code>: 将stream中的元素用特定的连接符（没有的话，则直接连接）连接成一个字符串。</li>
 </ul>
@@ -1331,7 +1331,7 @@ threadId=1, integer1=3, integer2=12
 <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">></span></span> list1 <span class="token operator">=</span> <span class="token class-name">List</span><span class="token punctuation">.</span><span class="token function">of</span><span class="token punctuation">(</span><span class="token string">"A"</span><span class="token punctuation">,</span><span class="token string">"B"</span><span class="token punctuation">,</span><span class="token string">"C"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token class-name">String</span> collect1 <span class="token operator">=</span> list1<span class="token punctuation">.</span><span class="token function">stream</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">collect</span><span class="token punctuation">(</span><span class="token class-name">Collectors</span><span class="token punctuation">.</span><span class="token function">joining</span><span class="token punctuation">(</span><span class="token string">"-"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>collect1<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">// A-B-C</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h4 id="3534规约"><a class="markdownIt-Anchor" href="#3534规约"></a> 3.5.3.4.规约</h4>
+<h5 id="4534规约"><a class="markdownIt-Anchor" href="#4534规约"></a> 4.5.3.4.规约</h5>
 <p>Collectors类提供的reducing方法，相比于stream本身的reduce方法，增加了对自定义归约的支持。</p>
 <ul>
 <li><strong><code>Collectors.reducing(BinaryOperator&lt;T&gt; op)</code></strong>：这是最基本的 <code>reducing</code> 方法。它接受一个二元运算符，对流中的所有元素进行归约。该方法将返回一个收集器Optional，它使用提供的运算符对流中的元素进行归约。</li>
@@ -1351,7 +1351,7 @@ threadId=1, integer1=3, integer2=12
 <span class="token comment">// 传递三个参数：定义一个初始值、映射函数和运算规则</span>
 <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>list<span class="token punctuation">.</span><span class="token function">stream</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">collect</span><span class="token punctuation">(</span><span class="token class-name">Collectors</span><span class="token punctuation">.</span><span class="token function">reducing</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> x <span class="token operator">-></span> x <span class="token operator">*</span> x<span class="token punctuation">,</span> <span class="token class-name">Integer</span><span class="token operator">::</span><span class="token function">sum</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//10</span>
 <span class="token comment">// 等价于：System.out.println(list.stream().map(x -> x * x).reduce(0, Integer::sum));先映射在规约</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h4 id="5535归集"><a class="markdownIt-Anchor" href="#5535归集"></a> 5.5.3.5.归集</h4>
+<h5 id="4535归集"><a class="markdownIt-Anchor" href="#4535归集"></a> 4.5.3.5.归集</h5>
 <ul>
 <li><code>Collectors.toList()</code>: 将Stream中的元素收集到一个List中，并返回该List,元素可以重复,有序。</li>
 <li><code>Collectors.toSet()</code>: 将Stream中的元素收集到一个Set中，并返回该Set，元素不能重复，无序</li>
@@ -1436,7 +1436,7 @@ threadId=1, integer1=3, integer2=12
         <span class="token punctuation">.</span><span class="token function">collect</span><span class="token punctuation">(</span><span class="token class-name">Collectors</span><span class="token punctuation">.</span><span class="token function">toMap</span><span class="token punctuation">(</span><span class="token class-name">Person</span><span class="token operator">::</span><span class="token function">getName</span><span class="token punctuation">,</span> <span class="token class-name">Person</span><span class="token operator">::</span><span class="token function">getAge</span><span class="token punctuation">,</span> <span class="token punctuation">(</span>existing<span class="token punctuation">,</span> replacement<span class="token punctuation">)</span> <span class="token operator">-></span> existing<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">// 如果已经存在，保留原先存在的值</span>
 <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>personMapWithMergeFunction<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// &#123;Alice=30, Bob=25&#125;</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="5java-stream-底层实现"><a class="markdownIt-Anchor" href="#5java-stream-底层实现"></a> 5.Java Stream 底层实现</h3>
+<h2 id="5java-stream-底层实现"><a class="markdownIt-Anchor" href="#5java-stream-底层实现"></a> 5.Java Stream 底层实现</h2>
 <p><strong>参考文章：</strong><a target="_blank" rel="noopener" href="https://www.cnblogs.com/CarpenterLee/p/6637118.html">深入理解Java Stream流水线</a></p>
 <link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
                 
@@ -1586,29 +1586,28 @@ threadId=1, integer1=3, integer2=12
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2024/05/06/stream-liu/">
+                <a href="/2024/05/15/duo-xian-cheng/">
                     <div class="card-image">
                         
-                        <img src="/medias/cover/12.png" class="responsive-img" alt="Stream流">
+                        <img src="/medias/cover/9.jpg" class="responsive-img" alt="多线程【快速入门】">
                         
-                        <span class="card-title">Stream流</span>
+                        <span class="card-title">多线程【快速入门】</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Java Stream流
+                            Java 多线程
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2024-05-06
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2024-05-15
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -1621,7 +1620,6 @@ threadId=1, integer1=3, integer2=12
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
@@ -1919,7 +1917,7 @@ threadId=1, integer1=3, integer2=12
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">60.3k</span>
+                        class="white-color">85.3k</span>
             
             
             

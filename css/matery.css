@@ -2341,3 +2341,7 @@ body.DarkMode .theme-btn:hover {
     height: 7px;
 }
 
+::selection{
+    background-color:  #036f8d;
+    color: #fff;
+}
